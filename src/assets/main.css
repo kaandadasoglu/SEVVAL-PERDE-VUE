@@ -1,0 +1,269 @@
+/* src/assets/main.css */
+@import './base.css'; /* base.css'i import eder (genellikle en başta olur) */
+
+/* Eğer Vite'ın eklediği #app stilleri varsa burada olabilir */
+/* Örneğin: */
+/* #app { */
+/* max-width: 1280px; */
+/* margin: 0 auto; */
+/* padding: 2rem; */
+/* font-weight: normal; */
+/* } */
+
+
+/* --- Anasayfa Bilgi Bölümleri Stilleri --- */
+.info-section {
+    padding: 40px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+.info-section:last-of-type {
+    border-bottom: none;
+}
+
+/* Hoş Geldiniz Bölümü */
+.welcome-section {
+    text-align: center;
+    background-color: #ffffff;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.welcome-section h2 {
+    font-size: 2em;
+    color: #8B4513;
+    margin-bottom: 20px;
+}
+.welcome-section p {
+    font-size: 1.1em;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+}
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.cta-button {
+    background-color: #8B4513;
+    color: white;
+    padding: 12px 35px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    text-align: center;
+}
+.cta-button:hover {
+    background-color: #A0522D;
+    transform: scale(1.05);
+}
+.cta-button.secondary {
+    background-color: #f5f5dc;
+    color: #8B4513;
+    border: 1px solid #8B4513;
+}
+.cta-button.secondary:hover {
+    background-color: #e0dacd;
+}
+
+
+/* Kategori Vurguları Bölümü */
+.category-highlights {
+    background-color: #f5f5dc;
+}
+.category-highlights h2 {
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 40px;
+}
+.highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+.highlight-item {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.highlight-img {
+    max-width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+}
+.highlight-item h3 {
+    font-size: 1.4em;
+    color: #8B4513;
+    margin-bottom: 15px;
+}
+.highlight-item p {
+    font-size: 0.95em;
+    color: #666;
+    line-height: 1.6;
+}
+.highlight-item p a {
+    font-weight: bold;
+}
+
+
+/* Neden Biz Bölümü */
+.why-us-section {
+    background-color: #fff;
+}
+.why-us-section h2 {
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 30px;
+}
+.why-us-section ul {
+    list-style: none;
+    padding-left: 0;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.why-us-section li {
+    font-size: 1.05em;
+    color: #555;
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+}
+.why-us-section li::before {
+    content: '✓';
+    color: #8B4513;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 2px;
+}
+
+/* --- Genel Duyarlılık Ayarları (main.css sonuna eklenebilir) --- */
+@media (max-width: 768px) {
+    .welcome-section h2,
+    .category-highlights h2,
+    .why-us-section h2 { font-size: 1.8em; }
+    .highlight-grid { gap: 20px; }
+}
+
+@media (max-width: 600px) {
+    .info-section { padding: 30px 0; }
+    .welcome-section h2,
+    .category-highlights h2,
+    .why-us-section h2 { font-size: 1.6em; margin-bottom: 25px; }
+    .welcome-section p { font-size: 1em; }
+    .highlight-item h3 { font-size: 1.3em; }
+    .highlight-item p { font-size: 0.9em; }
+    .why-us-section li { font-size: 1em; }
+    .cta-button { padding: 10px 25px; font-size: 1em; }
+}
+
+/* --- İletişim Sayfası Düzen Stilleri --- */
+.contact-section {
+  padding: 40px 0; /* Sayfa içeriğiyle arasındaki boşluk */
+  display: flex;     /* Bilgi ve haritayı yan yana koy */
+  flex-wrap: wrap;   /* Ekran daralınca alt alta gelsin */
+  gap: 30px;         /* Yan yana veya alt alta gelince aradaki boşluk */
+}
+
+.contact-info,
+.map-container {
+  flex: 1;          /* Mümkünse eşit yer kaplasınlar */
+  min-width: 300px; /* Çok daralınca en az bu kadar geniş olsun */
+}
+
+.contact-info h2,
+.map-container h2 {
+  /* font-size: 1.6em; */ /* İsteğe bağlı boyut ayarı */
+  color: #8B4513; /* Başlık rengi */
+  margin-bottom: 20px;
+  border-bottom: 2px solid #eee; /* Başlık altı çizgi */
+  padding-bottom: 10px;
+}
+
+.contact-info p {
+  margin-bottom: 15px;
+  font-size: 1.1em; /* Yazı boyutu */
+  line-height: 1.7; /* Satır yüksekliği */
+}
+
+.contact-info strong {
+  display: inline-block; /* Etiketlerin hizası için */
+  min-width: 80px;    /* Etiket genişliği */
+  margin-right: 5px;  /* Etiket ve değer arası boşluk */
+}
+
+.map-container iframe {
+  width: 100%;        /* Konteyner genişliğine tam sığdır */
+  max-width: 100%;   /* Taşmayı engelle */
+  height: 450px;     /* Harita yüksekliği (ayarlanabilir) */
+  border: 1px solid #ccc; /* İnce çerçeve */
+  border-radius: 5px;   /* Köşe yuvarlama */
+  display: block;     /* Altında boşluk kalmaması için */
+}
+
+/* --- İletişim Sayfası Duyarlılık --- */
+@media (max-width: 768px) {
+  .contact-section {
+       padding: 30px 0;
+       gap: 25px;
+  }
+   .map-container iframe {
+      height: 350px; /* Tablette harita yüksekliği */
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-section {
+       padding: 20px 0;
+  }
+  .contact-info h2,
+  .map-container h2 {
+       font-size: 1.4em; /* Mobil başlık boyutu */
+  }
+   .contact-info p {
+      font-size: 1em; /* Mobil yazı boyutu */
+   }
+  .map-container iframe {
+      height: 300px; /* Mobilde harita yüksekliği */
+  }
+}
+/* Ürün Grid Temel Stilleri (Kategori sayfaları için geçerli) */
+.product-grid:not(.product-carousel-container .product-grid) {
+  display: flex;      /* VEYA display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); */
+  flex-wrap: wrap;    /* Alt satıra in */
+  gap: 25px;          /* Ürünler arası boşluk */
+  justify-content: center; /* Ortalamak için eklenebilir */
+}
+
+/* Ürün Kartı Temel Stilleri (Kategori sayfaları için geçerli) */
+/* ProductCard.vue içindeki scoped stil bunu zaten sağlıyor olabilir */
+/* Ancak flex-basis burada tanımlanabilir */
+.product-item:not(.product-carousel-container .product-item) {
+  flex: 1 1 280px; 
+}
+
+
+@media (max-width: 768px) {
+  .product-grid:not(.product-carousel-container .product-grid) .product-item {
+       flex-basis: calc(50% - 12.5px); 
+  }
+}
+@media (max-width: 600px) {
+  .product-grid:not(.product-carousel-container .product-grid) {
+      gap: 15px; /* Mobil boşluk */
+  }
+  .product-grid:not(.product-carousel-container .product-grid) .product-item {
+      flex-basis: 100%; /* Mobilde tekli */
+  }
+}

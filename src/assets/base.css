@@ -1,0 +1,40 @@
+/* src/assets/base.css */
+
+/* Genel Sıfırlamalar */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body Stili */
+body {
+  min-height: 100vh;
+  color: #333;
+  background: #F5F5DC; /* <<<--- TEN RENGİ ARKA PLAN */
+  line-height: 1.6;
+  font-family: 'Arial', sans-serif; /* Veya seçtiğiniz font */
+}
+
+/* Genel Container Stili */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Genel Link Stilleri */
+a {
+  text-decoration: none;
+  color: #8B4513;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #A0522D;
+}

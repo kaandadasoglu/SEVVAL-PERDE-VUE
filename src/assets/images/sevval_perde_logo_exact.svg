@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="140" viewBox="0 0 600 140" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+      .brand-text { font-family: 'Michroma', sans-serif; font-weight: 400; letter-spacing: 2px; }
+    </style>
+  </defs>
+
+  <!-- Ornament -->
+  <path d="M 113.62,64.26 L 128.00,70.00 L 113.62,75.74 Z M 113.62,75.74 L 126.02,85.01 L 110.65,86.84 Z M 110.65,86.84 L 120.23,99.00 L 104.91,96.79 Z M 104.91,96.79 L 111.01,111.01 L 96.79,104.91 Z M 96.79,104.91 L 99.00,120.23 L 86.84,110.65 Z M 86.84,110.65 L 85.01,126.02 L 75.74,113.62 Z M 75.74,113.62 L 70.00,128.00 L 64.26,113.62 Z M 64.26,113.62 L 54.99,126.02 L 53.16,110.65 Z M 53.16,110.65 L 41.00,120.23 L 43.21,104.91 Z M 43.21,104.91 L 28.99,111.01 L 35.09,96.79 Z M 35.09,96.79 L 19.77,99.00 L 29.35,86.84 Z M 29.35,86.84 L 13.98,85.01 L 26.38,75.74 Z M 26.38,75.74 L 12.00,70.00 L 26.38,64.26 Z M 26.38,64.26 L 13.98,54.99 L 29.35,53.16 Z M 29.35,53.16 L 19.77,41.00 L 35.09,43.21 Z M 35.09,43.21 L 28.99,28.99 L 43.21,35.09 Z M 43.21,35.09 L 41.00,19.77 L 53.16,29.35 Z M 53.16,29.35 L 54.99,13.98 L 64.26,26.38 Z M 64.26,26.38 L 70.00,12.00 L 75.74,26.38 Z M 75.74,26.38 L 85.01,13.98 L 86.84,29.35 Z M 86.84,29.35 L 99.00,19.77 L 96.79,35.09 Z M 96.79,35.09 L 111.01,28.99 L 104.91,43.21 Z M 104.91,43.21 L 120.23,41.00 L 110.65,53.16 Z M 110.65,53.16 L 126.02,54.99 L 113.62,64.26 Z" fill="#FFFFFF" />
+  <circle cx="70" cy="70" r="48" fill="none" stroke="#FFFFFF" stroke-width="4"/>
+
+  <!-- Letter Ş (custom path for consistency across fonts) -->
+  <path d="
+    M 52 45
+    C 82 45 82 70 62 70
+    L 82 70
+    L 82 80
+    C 52 80 52 105 80 105
+    " fill="#FFFFFF"/>
+  <rect x="66" y="105" width="8" height="12" fill="#FFFFFF"/>
+
+  <!-- Brand Name -->
+  <text x="150" y="88" class="brand-text" font-size="56" fill="#FFFFFF">ŞEVVAL PERDE</text>
+</svg>
