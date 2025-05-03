@@ -77,7 +77,7 @@ const hotspots = ref([
     data: {
       title: "Plise Perde",
       description:
-        "Kırımlı yapısıyla cama yakın monte edilen, şık ve fonksiyonel bir çözüm.",
+        "Özgün tasarımı ve kullanım kolaylığıyla plise perdeler, pencerelerinize farklı bir boyut kazandırıyor. Özellikle eğimli ve farklı şekilli pencereler için ideal olan plise perdelerimizle mekanlarınıza modern bir dokunuş katın",
       detailsLink: "/perde-cesitleri/plise-perde",
       image: getImageUrl("closeup_plise_perde.jpg"),
     },

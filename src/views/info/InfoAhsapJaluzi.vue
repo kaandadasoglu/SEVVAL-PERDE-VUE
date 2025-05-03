@@ -19,7 +19,7 @@ useHead({
 
 <template>
   <div class="container page-container info-page">
-    <h1>Ahşap Jaluzi Perdeler: Doğallık ve Kontrol</h1>
+    <h1>Ahşap Jaluzi Perdeler: Doğallık ve Kontrol Mekanlarınızda Buluşuyor</h1>
 
     <div class="info-content">
       <div class="info-image">
