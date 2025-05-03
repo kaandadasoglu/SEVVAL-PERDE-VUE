@@ -22,7 +22,7 @@ const hotspots = ref([
     data: {
       title: "Ahşap Jaluzi",
       description:
-        "Doğal ahşabın ",
+        "Doğal ahşabın sıcaklığını ve zarafetini yaşam alanlarınıza taşıyın. Kadıköy ahşap jaluzi seçeneklerimizle mekanlarınıza özel bir dokunuş katın. Ayarlanabilir bantları sayesinde ışık kontrolü tamamen sizin elinizde!",
       detailsLink: "/perde-cesitleri/ahsap-jaluzi",
       image: getImageUrl("closeup_ahsap_jaluzi.jpg"),
     },
