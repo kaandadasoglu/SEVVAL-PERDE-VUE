@@ -33,7 +33,7 @@ const hotspots = ref([
     data: {
       title: "Fon Perde",
       description:
-        "Dekorasyonun tamamlayıcısı şık fon perdeler. Zengin renk ve kumaş seçenekleriyle tarzınızı yansıtın, mahremiyet sağlayın.",
+        "İstanbul Kadıköy'deki perde mağazamızda birbirinden şık fon perde modelleri sizi bekliyor. Kaliteli kumaşları ve özenli dikimiyle uzun yıllar kullanabileceğiniz fon perdelerimizle evinizin atmosferini değiştirin.",
       detailsLink: "/perde-cesitleri/fon-perde",
       image: getImageUrl("closeup_fon_perde.jpg"),
     },
@@ -44,7 +44,7 @@ const hotspots = ref([
     data: {
       title: "Tül Perde",
       description:
-        "Mahremiyet sağlarken doğal ışığın içeri süzülmesini sağlayan zarif tül perdeler.",
+        "İstanbul Kadıköy'de aradığınız en güzel tül perde modelleri burada! Modern, klasik veya country tarzı dekorasyonunuza uyum sağlayacak birbirinden şık tüllerimizle evinizi aydınlatın. ",
       detailsLink: "/perde-cesitleri/tul-perde",
       image: getImageUrl("closeup_tul_perde.jpg"),
     },
@@ -66,7 +66,7 @@ const hotspots = ref([
     data: {
       title: "Stor Perde (Roller)",
       description:
-        "Sade, kullanışlı ve modern bir görünüme sahiptir. Karartma veya filtre kumaş seçenekleri bulunur.",
+        "Pratik kullanımı ve modern görünümüyle stor perdeler, ev ve iş yerlerinize şıklık katıyor. Farklı renk, desen ve mekanizmalara sahip stor perdelerimizle güneş kontrolünü kolayca sağlayın.",
       detailsLink: "/perde-cesitleri/stor-perde",
       image: getImageUrl("closeup_normal_stor.jpg"),
     },
@@ -77,7 +77,7 @@ const hotspots = ref([
     data: {
       title: "Plise Perde",
       description:
-        "Kırımlı yapısıyla cama yakın monte edilen, şık ve fonksiyonel bir çözüm.",
+        "Özgün tasarımı ve kullanım kolaylığıyla plise perdeler, pencerelerinize farklı bir boyut kazandırıyor. Özellikle eğimli ve farklı şekilli pencereler için ideal olan plise perdelerimizle mekanlarınıza modern bir dokunuş katın",
       detailsLink: "/perde-cesitleri/plise-perde",
       image: getImageUrl("closeup_plise_perde.jpg"),
     },
