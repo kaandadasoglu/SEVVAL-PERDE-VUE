@@ -22,7 +22,7 @@ const hotspots = ref([
     data: {
       title: "Ahşap Jaluzi",
       description:
-        "Doğal ahşabın sıcaklığıyla mekanlarınıza şıklık katın. Ayarlanabilir bantları ile ışık kontrolü tamamen sizde.",
+        "Doğal ahşabın ",
       detailsLink: "/perde-cesitleri/ahsap-jaluzi",
       image: getImageUrl("closeup_ahsap_jaluzi.jpg"),
     },
