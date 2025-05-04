@@ -11,7 +11,13 @@ import mainImageUrl from "@/assets/images/ana_gorsel.jpg";
 
 // Yardımcı fonksiyon: yakın plan görsel yolu
 const getImageUrl = (name) => {
-  return new URL(`../assets/images/${name}`, import.meta.url).href;
+  // Hata kontrolü ekleyelim
+  try {
+    return new URL(`../assets/images/${name}`, import.meta.url).href;
+  } catch (e) {
+    console.error(`Resim yüklenemedi: ${name}`, e);
+    return ""; // Hata durumunda boş string dön
+  }
 };
 
 // Hotspot verileri
@@ -20,9 +26,9 @@ const hotspots = ref([
     id: "hs-ahsap-jaluzi",
     style: { top: "30%", left: "7%" },
     data: {
-      title: "Ahşap Jaluzi", // <--- Başlık burada
+      title: "Ahşap Jaluzi",
       description:
-        "Doğal ahşabın sıcaklığını ve zarafetini yaşam alanlarınıza taşıyın. Kadıköy ahşap jaluzi seçeneklerimizle mekanlarınıza özel bir dokunuş katın. Ayarlanabilir bantları sayesinde ışık kontrolü tamamen sizin elinizde!",
+        "Doğal ahşabın sıcaklığını ve zarafetini yaşam alanlarınıza taşıyın...", // Kısaltıldı
       detailsLink: "/perde-cesitleri/ahsap-jaluzi",
       image: getImageUrl("closeup_ahsap_jaluzi.jpg"),
     },
@@ -31,9 +37,9 @@ const hotspots = ref([
     id: "hs-fon-perde",
     style: { top: "45%", left: "25%" },
     data: {
-      title: "Fon Perde", // <--- Başlık burada
+      title: "Fon Perde",
       description:
-        "İstanbul Kadıköy'deki perde mağazamızda birbirinden şık fon perde modelleri sizi bekliyor. Kaliteli kumaşları ve özenli dikimiyle uzun yıllar kullanabileceğiniz fon perdelerimizle evinizin atmosferini değiştirin.",
+        "İstanbul Kadıköy'deki perde mağazamızda birbirinden şık fon perde modelleri...", // Kısaltıldı
       detailsLink: "/perde-cesitleri/fon-perde",
       image: getImageUrl("closeup_fon_perde.jpg"),
     },
@@ -42,9 +48,9 @@ const hotspots = ref([
     id: "hs-tul-perde",
     style: { top: "50%", left: "35%" },
     data: {
-      title: "Tül Perde", // <--- Başlık burada
+      title: "Tül Perde",
       description:
-        "İstanbul Kadıköy'de aradığınız en güzel tül perde modelleri burada! Modern, klasik veya country tarzı dekorasyonunuza uyum sağlayacak birbirinden şık tüllerimizle evinizi aydınlatın.",
+        "İstanbul Kadıköy'de aradığınız en güzel tül perde modelleri burada!...", // Kısaltıldı
       detailsLink: "/perde-cesitleri/tul-perde",
       image: getImageUrl("closeup_tul_perde.jpg"),
     },
@@ -53,9 +59,9 @@ const hotspots = ref([
     id: "hs-katlamali-perde",
     style: { top: "30%", left: "63%" },
     data: {
-      title: "Katlamalı Perde (Roman Shade)", // <--- Başlık burada
+      title: "Katlamalı Perde", // (Roman Shade) kaldırıldı
       description:
-        "Kumaşın yukarı doğru zarif katmanlarla toplandığı dekoratif ve şık perde modeli.",
+        "Kumaşın yukarı doğru zarif katmanlarla toplandığı dekoratif ve şık perde...", // Kısaltıldı
       detailsLink: "/perde-cesitleri/katlamali-perde",
       image: getImageUrl("closeup_katlamali.jpg"),
     },
@@ -64,9 +70,9 @@ const hotspots = ref([
     id: "hs-normal-stor",
     style: { top: "50%", left: "76%" },
     data: {
-      title: "Stor Perde (Roller)", // <--- Başlık burada
+      title: "Stor Perde", // (Roller) kaldırıldı
       description:
-        "Pratik kullanımı ve modern görünümüyle stor perdeler, ev ve iş yerlerinize şıklık katıyor. Farklı renk, desen ve mekanizmalara sahip stor perdelerimizle güneş kontrolünü kolayca sağlayın.",
+        "Pratik kullanımı ve modern görünümüyle stor perdeler, ev ve iş yerlerinize şıklık katıyor...", // Kısaltıldı
       detailsLink: "/perde-cesitleri/stor-perde",
       image: getImageUrl("closeup_normal_stor.jpg"),
     },
@@ -75,35 +81,35 @@ const hotspots = ref([
     id: "hs-plise-perde",
     style: { top: "56%", left: "91%" },
     data: {
-      title: "Plise Perde", // <--- Başlık burada
+      title: "Plise Perde",
       description:
-        "Özgün tasarımı ve kullanım kolaylığıyla plise perdeler, pencerelerinize farklı bir boyut kazandırıyor. Özellikle eğimli ve farklı şekilli pencereler için ideal olan plise perdelerimizle mekanlarınıza modern bir dokunuş katın",
+        "Özgün tasarımı ve kullanım kolaylığıyla plise perdeler, pencerelerinize farklı bir boyut...", // Kısaltıldı
       detailsLink: "/perde-cesitleri/plise-perde",
       image: getImageUrl("closeup_plise_perde.jpg"),
     },
   },
 ]);
 
-// Stil hesaplama
+// Stil hesaplama - Tooltip'in görünmesi için overflow: 'visible' yapıldı
 function getHotspotStyle(style) {
   return {
     ...style,
-    width: "8%",
+    width: "8%", // İstediğiniz gibi %8 kaldı
     aspectRatio: "1",
     position: "absolute",
     transform: "translate(-50%, -50%)",
     borderRadius: "50%",
-    overflow: "hidden",
+    overflow: "visible", // <<<--- DEĞİŞİKLİK: Tooltip'in görünmesi için 'hidden' -> 'visible'
   };
 }
 
-// Popup gösterme fonksiyonu (event parametresi artık ripple için gerekli değil)
+// Popup gösterme fonksiyonu
 function showPopup(data) {
   selectedHotspot.value = data;
   isModalVisible.value = true;
-  // Ripple efekti artık CSS :hover ile tetiklendiği için JS'de koordinat ayarlamaya gerek yok.
 }
 
+// Popup gizleme fonksiyonu
 function hidePopup() {
   isModalVisible.value = false;
   selectedHotspot.value = null;
@@ -132,10 +138,12 @@ function hidePopup() {
           class="hotspot"
           :style="getHotspotStyle(spot.style)"
           @click="showPopup(spot.data)"
-          :title="spot.data.title"
-          @mouseover="handleHover(spot.id)"
-          @mouseleave="handleLeave(spot.id)"
-        ></button>
+          aria-label="Detayları gör"
+        >
+          <span class="custom-tooltip" role="tooltip">{{
+            spot.data.title
+          }}</span>
+        </button>
       </div>
     </div>
 
@@ -148,6 +156,7 @@ function hidePopup() {
 </template>
 
 <style scoped>
+/* --- Değişmeyen Stiller --- */
 .interactive-image-section {
   background-color: #fff;
   padding: 40px 0;
@@ -178,22 +187,27 @@ function hidePopup() {
   z-index: 10;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  position: absolute;
-  border-radius: 50%;
-  overflow: hidden; /* Ripple efektinin taşmasını önler */
+  position: absolute; /* getHotspotStyle ile ayarlanıyor */
+  border-radius: 50%; /* getHotspotStyle ile ayarlanıyor */
+  /* overflow: hidden; */ /* getHotspotStyle içinde visible yapıldı */
+  overflow: visible; /* getHotspotStyle'dan gelen değeri tekrar yazmak gereksiz ama kalsın */
+  /* İçeriği hizalamak için (gerekirse) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hotspot:hover {
   background-color: rgba(255, 255, 255, 0.6);
-  transform: translate(-50%, -50%) scale(1.1);
+  /* transform: translate(-50%, -50%) scale(1.1); */ /* Tooltip pozisyonunu etkilememesi için yorumda */
+  z-index: 11; /* Hover olan üste çıksın */
 }
 
-/* --- Su Damlası (Ripple) Efekti --- */
+/* --- Ripple Efekti Stilleri (DEĞİŞMEDİ) --- */
 .hotspot::after {
   content: "";
   display: block;
   position: absolute;
-  /* Efekt her zaman merkezden başlasın */
   top: 50%;
   left: 50%;
   width: 100%;
@@ -207,32 +221,60 @@ function hidePopup() {
   border-radius: 50%;
   transform: translate(-50%, -50%) scale(0);
   pointer-events: none;
-  /* Animasyonun başlangıç durumunu tanımlamak için animation-fill-mode ekleyebiliriz,
-     ama hover için genellikle gerekmez, fare ayrıldığında sıfırlanır. */
+  z-index: 1; /* Tooltip'in arkasında kalması için */
 }
 
-/* Üzerine gelince (hover) animasyonu tetikle */
 .hotspot:hover::after {
-  /* animation: ripple 1.0s ease-out; */ /* Animasyon adı, süresi ve zamanlama fonksiyonu */
-  /* Not: Sürekli tetiklenmesini istemiyorsak JS ile kontrol daha iyi olabilir */
-  /* Şimdilik basit hover ile bırakalım */
-  opacity: 1; /* Görünür yap */
-  transform: translate(-50%, -50%) scale(3); /* Büyüt */
-  transition: transform 1s ease-out, opacity 1s ease-out; /* Animasyon yerine geçiş kullan */
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(3);
+  transition: transform 1s ease-out, opacity 1s ease-out; /* Süreler 1sn olarak kaldı */
 }
 
-/* @keyframes ripple {
-  from {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(0);
-  }
-  to {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(3);
-  }
-} */
+/* --- YENİ: Özel Tooltip Stilleri --- */
+.custom-tooltip {
+  /* Pozisyon */
+  position: absolute;
+  bottom: calc(100% + 10px); /* Butonun biraz üstünde (10px boşluk) */
+  left: 50%;
+  transform: translateX(-50%);
 
-/* Genel Başlık ve Paragraf Stilleri */
+  /* Görünüm */
+  background-color: rgba(40, 40, 40, 0.85); /* Koyu yarı şeffaf */
+  color: #fff;
+  padding: 7px 12px; /* İç boşluk */
+  border-radius: 5px; /* Köşe yuvarlaklığı */
+  font-size: 13px; /* Yazı boyutu */
+  font-weight: 500;
+  white-space: nowrap; /* Tek satır */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+
+  /* Başlangıç durumu ve Geçiş */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s ease; /* Hızlı geçiş */
+  z-index: 20; /* En üstte görünmesi için yüksek z-index */
+}
+
+/* YENİ: Tooltip Oku */
+.custom-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%; /* Tooltip kutusunun altı */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px; /* Ok boyutu */
+  border-style: solid;
+  border-color: rgba(40, 40, 40, 0.85) transparent transparent transparent; /* Yukarıyı gösteren ok */
+}
+
+/* YENİ: Hotspot üzerine gelince Tooltip'i göster */
+.hotspot:hover .custom-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* --- Genel Başlık ve Paragraf Stilleri (DEĞİŞMEDİ) --- */
 h2 {
   font-size: 2.2em;
   color: #333;
