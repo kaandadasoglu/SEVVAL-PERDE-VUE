@@ -17,7 +17,7 @@ useHead({
 
 <template>
   <div class="container page-container info-page">
-    <h1>Fon Perdeler: Dekorasyonun Vazgeçilmezi</h1>
+    <h1>Fon Perdeler: Dekorasyonunuzun Şık ve Vazgeçilmez Tamamlayıcısı</h1>
 
     <div class="info-content">
       <div class="info-image">
@@ -25,13 +25,22 @@ useHead({
       </div>
       <div class="info-text">
         <p>
-          Fon perdeler, pencerelerin iki yanına asılan ve genellikle dekoratif
-          amaçlı kullanılan perdelerdir. Hem mekanın genel estetiğini
-          tamamlarlar hem de kapatıldıklarında ışığı engelleme ve mahremiyet
-          sağlama işlevi görürler. Tül perdelerle birlikte kullanıldıklarında
-          katmanlı ve zengin bir görünüm oluştururlar.
+          Ev dekorasyonunda pencere giydirme sanatının önemli bir parçası olan
+          fon perde, pencerelerin her iki yanına zarifçe asılarak mekanın genel
+          estetiğini tamamlayan ve görsel bir zenginlik katan dekoratif
+          unsurlardır. Fon perde modelleri, sadece mekanın ambiyansını
+          güçlendirmekle kalmaz, aynı zamanda ihtiyaç duyulduğunda kapatılarak
+          ışığı engelleme ve mahremiyet sağlama gibi fonksiyonel görevleri de
+          üstlenir. Özellikle tül fon perde kombinasyonları, pencerelerde
+          katmanlı ve sofistike bir görünüm oluşturarak yaşam alanlarına
+          derinlik ve zarafet katar. Eğer siz de evinizin veya ofisinizin
+          dekorasyonuna son bir dokunuş yapmak ve mekanlarınıza şıklık katmak
+          istiyorsanız, fon perde seçeneklerini detaylı bir şekilde incelemeniz
+          önemlidir. İstanbul ve özellikle Kadıköy bölgesinde aradığınız en şık
+          ve kaliteli fon perde seçenekleri için Şevval Perde mağazamızı ziyaret
+          edebilirsiniz.
         </p>
-        <h2>Fon Perde Seçiminin Püf Noktaları</h2>
+        <h2>Fon Perde Nedir? Dekoratif Zarafet ve Fonksiyonellik Bir Arada</h2>
         <ul>
           <li>
             <strong>Kumaş Seçimi:</strong> Kadife, keten, pamuklu, ipek veya
