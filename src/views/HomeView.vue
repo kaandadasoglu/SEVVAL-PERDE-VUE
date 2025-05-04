@@ -135,6 +135,27 @@ useHead({
               Şevval Perde'nin geniş ürün yelpazesini keşfedin.
             </p>
           </div>
+
+          <div class="highlight-item">
+            <img
+              :src="katPliseImg"
+              alt="Kadıköy Plise Perdeler"
+              class="highlight-img"
+            />
+            <h3>Plise Perde: Sadelikten Yana Olanlara</h3>
+            <p>
+              Modern ve minimalist yaşam alanlarının vazgeçilmezi
+              <RouterLink
+                :to="{ name: 'category', params: { slug: 'pliseler' } }"
+                >plise perdeler</RouterLink
+              >, pratik kullanımı ve şık görünümü bir arada sunar. Hafif yapısı,
+              kolay açılıp kapanma mekanizması ve farklı katlama seçenekleriyle
+              ışığı dilediğiniz gibi kontrol etmenizi sağlar. İster güneşli bir
+              günde ışığı nazikçe filtreleyin, ister tamamen karartın.
+              İstanbul'da fonksiyonel ve estetik plise perde çözümleri için
+              Şevval Perde'nin geniş ürün yelpazesini keşfedin.
+            </p>
+          </div>
         </div>
       </div>
     </section>
