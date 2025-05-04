@@ -1,8 +1,7 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, computed } from "vue"; // computed eklendi
 
-// Slider verisi (görseller ve başlıklar)
-// Not: Görsel yollarını @/assets/images/ olarak güncelledik
+// Slider verisi
 const slidesData = ref([
   {
     img: new URL("@/assets/images/slider1.jpg", import.meta.url).href,
@@ -16,63 +15,165 @@ const slidesData = ref([
     img: new URL("@/assets/images/slider3.jpg", import.meta.url).href,
     caption: "Fonksiyonel Stor Perdeler",
   },
-  // Daha fazla slayt eklenebilir
 ]);
 
-const currentSlide = ref(0); // Aktif slaytın index'i
-let slideInterval = null; // Otomatik kaydırma için interval ID'si
-const sliderContainerRef = ref(null); // Slider konteynerına referans (hover için)
+const currentSlide = ref(0);
+let slideInterval = null;
+const sliderContainerRef = ref(null); // Slider konteynerı referansı
 
-// Belirli bir slaytı gösteren fonksiyon
+// --- Swipe/Drag Değişkenleri ---
+const isDragging = ref(false); // Sürükleme aktif mi?
+const startX = ref(0); // Başlangıç X koordinatı
+const currentX = ref(0); // Anlık X koordinatı (opsiyonel, görsel sürükleme için gerekebilir)
+const dragThreshold = 50; // Kaydırma olarak algılanması için gereken minimum piksel
+
+// --- Slayt Fonksiyonları ---
 function showSlide(index) {
   const totalSlides = slidesData.value.length;
   if (totalSlides === 0) return;
-  // Index'i sınırlar içinde tut
   currentSlide.value = (index + totalSlides) % totalSlides;
 }
 
-// Sonraki slayta geç
 function nextSlide() {
   showSlide(currentSlide.value + 1);
 }
 
-// Önceki slayta geç
 function prevSlide() {
   showSlide(currentSlide.value - 1);
 }
 
-// Otomatik kaydırmayı başlatan fonksiyon
+// --- Otomatik Kaydırma ---
 function startSlideShow() {
-  stopSlideShow(); // Önce varsa durdur
+  stopSlideShow();
   if (slidesData.value.length > 1) {
-    slideInterval = setInterval(nextSlide, 5000); // 5 saniyede bir
+    slideInterval = setInterval(nextSlide, 5000);
   }
 }
 
-// Otomatik kaydırmayı durduran fonksiyon
 function stopSlideShow() {
   clearInterval(slideInterval);
 }
 
-// Bileşen yüklendiğinde slider'ı başlat
+// --- Swipe/Drag Olay Yöneticileri ---
+
+// Olaydan X koordinatını alır (mouse veya touch)
+function getEventX(event) {
+  return event.type.startsWith("touch")
+    ? event.changedTouches[0].clientX
+    : event.clientX;
+}
+
+function handleDragStart(event) {
+  // Sadece tek slayt varsa veya zaten sürükleniyorsa bir şey yapma
+  if (slidesData.value.length <= 1 || isDragging.value) return;
+
+  isDragging.value = true;
+  startX.value = getEventX(event);
+  currentX.value = startX.value; // Başlangıçta eşit
+  stopSlideShow(); // Sürüklerken otomatik kaymayı durdur
+
+  // Opsiyonel: sürüklerken imleci değiştir
+  if (sliderContainerRef.value) {
+    sliderContainerRef.value.style.cursor = "grabbing";
+  }
+  // Dokunmatik için sayfa kaymasını engelle (yatay swipe önceliği)
+  if (event.type === "touchstart") {
+    // event.preventDefault(); // DİKKAT: Bu, dikey kaydırmayı da engelleyebilir. Gerekirse daha detaylı kontrol lazım.
+  }
+}
+
+function handleDragMove(event) {
+  if (!isDragging.value) return;
+  currentX.value = getEventX(event);
+  // İPUCU: Eğer görsel sürükleme isterseniz, burada .slider'a transform uygulayabilirsiniz:
+  // const diff = currentX.value - startX.value;
+  // sliderContainerRef.value.querySelector('.slider').style.transform = `translateX(${diff}px)`;
+  // sliderContainerRef.value.querySelector('.slider').style.transition = 'none'; // Sürüklerken geçiş olmasın
+}
+
+function handleDragEnd(event) {
+  if (!isDragging.value) return;
+
+  const endX = getEventX(event);
+  const diffX = endX - startX.value;
+
+  // Belirli bir eşiği geçtiyse yönü belirle
+  if (Math.abs(diffX) > dragThreshold) {
+    if (diffX < 0) {
+      // Sola kaydırma (Next)
+      nextSlide();
+    } else {
+      // Sağa kaydırma (Prev)
+      prevSlide();
+    }
+  }
+
+  // Sürüklemeyi bitir ve durumu sıfırla
+  isDragging.value = false;
+  startX.value = 0;
+  currentX.value = 0;
+  startSlideShow(); // Otomatik kaymayı tekrar başlat
+
+  // Opsiyonel: İmleci ve transform'u sıfırla
+  if (sliderContainerRef.value) {
+    sliderContainerRef.value.style.cursor = "grab";
+    // Görsel sürükleme yaptıysanız:
+    // sliderContainerRef.value.querySelector('.slider').style.transform = 'translateX(0)';
+    // sliderContainerRef.value.querySelector('.slider').style.transition = 'opacity 0.8s ease-in-out'; // Veya transform transition
+  }
+}
+
+// Eğer fare slider dışına çıkarsa sürüklemeyi bitir
+function handleMouseLeave() {
+  if (isDragging.value) {
+    // Drag End gibi davran ama son konumu kullanma, sadece sıfırla
+    isDragging.value = false;
+    startX.value = 0;
+    currentX.value = 0;
+    startSlideShow();
+    if (sliderContainerRef.value) {
+      sliderContainerRef.value.style.cursor = "grab";
+      // Görsel sürükleme yaptıysanız:
+      // sliderContainerRef.value.querySelector('.slider').style.transform = 'translateX(0)';
+      // sliderContainerRef.value.querySelector('.slider').style.transition = 'opacity 0.8s ease-in-out';
+    }
+  }
+}
+
+// --- Lifecycle Hooks ---
 onMounted(() => {
   startSlideShow();
-  // Hover olaylarını ekle (isteğe bağlı)
+  // Hover ile durdurma/başlatma hala aktif kalabilir
   if (sliderContainerRef.value) {
     sliderContainerRef.value.addEventListener("mouseenter", stopSlideShow);
-    sliderContainerRef.value.addEventListener("mouseleave", startSlideShow);
+    sliderContainerRef.value.addEventListener("mouseleave", startSlideShow); // Buradaki startSlideShow handleMouseLeave ile çakışabilir, dikkat!
+    // NOT: Belki de hover yerine sadece drag sırasında durdurmak daha iyi? handleDragStart/End içinde zaten yapılıyor.
+    // Bu listener'ları kaldırabiliriz:
+    // sliderContainerRef.value.removeEventListener("mouseenter", stopSlideShow);
+    // sliderContainerRef.value.removeEventListener("mouseleave", startSlideShow);
   }
 });
 
-// Bileşen kaldırıldığında interval'i temizle (hafıza sızıntısını önle)
 onUnmounted(() => {
   stopSlideShow();
-  // Event listener'ları da kaldırmak iyi pratiktir ama burada basitlik için atladık
+  // Event listener'ları da kaldırmak iyi pratiktir (özellikle hover olanları kaldırdıysak)
 });
 </script>
 
 <template>
-  <section class="slider-container" ref="sliderContainerRef">
+  <section
+    class="slider-container"
+    ref="sliderContainerRef"
+    @mousedown.prevent="handleDragStart"
+    @touchstart.prevent="handleDragStart"
+    @mousemove="handleDragMove"
+    @touchmove="handleDragMove"
+    @mouseup="handleDragEnd"
+    @touchend="handleDragEnd"
+    @mouseleave="handleMouseLeave"
+    :class="{ dragging: isDragging }"
+    style="cursor: grab"
+  >
     <div class="slider">
       <div
         v-for="(slide, index) in slidesData"
@@ -80,60 +181,46 @@ onUnmounted(() => {
         class="slide"
         :class="{ 'active-slide': index === currentSlide }"
         :style="{ backgroundImage: `url(${slide.img})` }"
+        draggable="false"
       >
         <div class="slide-caption">{{ slide.caption }}</div>
       </div>
     </div>
-    <template v-if="slidesData.length > 1">
-      <button
-        @click="prevSlide"
-        class="slider-btn prev"
-        aria-label="Önceki Slayt"
-      >
-        &#10094;
-      </button>
-      <button
-        @click="nextSlide"
-        class="slider-btn next"
-        aria-label="Sonraki Slayt"
-      >
-        &#10095;
-      </button>
-    </template>
   </section>
 </template>
 
 <style scoped>
-/* Daha önceki style.css'den alınan slider stilleri */
 .slider-container {
   width: 100%;
   overflow: hidden;
   position: relative;
-  background-color: #f5f5dc;
+  background-color: #f0f0f0;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.slider-container.dragging {
+  cursor: grabbing !important;
 }
 
 .slider {
   display: flex;
   position: relative;
-
-  /* Yaygın oranlar: 16/9 (Geniş Ekran), 21/9 (Daha Geniş), 3/2, 4/3 */
-  aspect-ratio: 3/2; /* <<<--- Örnek: 16:9 oranı */
-  /* İsterseniz farklı bir oran deneyebilirsiniz: aspect-ratio: 21 / 9; veya aspect-ratio: 3 / 2; */
-
-  width: 100%; /* Genişliğin %100 olduğundan emin olun */
-  /* Fallback için minimum yükseklik (çok eski tarayıcılar veya çok dar ekranlar için) */
-  min-height: 250px; /* Çok küçülmesini engellemek için */
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  min-height: 250px;
 }
 
 .slide {
-  min-width: 100%; /* Bu gerekli değil artık, aşağıdaki stiller yeterli */
-  background-size: cover; /* Görselin alanı kaplaması ÖNEMLİ */
-  background-position: center; /* Ortalaması ÖNEMLİ */
+  background-size: cover;
+  background-position: center;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%; /* Parent (.slider) genişliğini al */
-  height: 100%; /* Parent (.slider) yüksekliğini al */
+  width: 100%;
+  height: 100%;
   opacity: 0;
   transition: opacity 0.8s ease-in-out;
   z-index: 1;
@@ -148,102 +235,48 @@ onUnmounted(() => {
   position: absolute;
   bottom: 30px;
   left: 30px;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.65); /* Biraz daha belirgin arka plan */
   color: #fff;
-  padding: 10px 20px;
-  font-size: 1.5em;
-  border-radius: 5px;
-  z-index: 3; /* Caption en üstte */
+  padding: 12px 22px; /* Biraz daha fazla boşluk */
+  font-size: clamp(1.2em, 3vw, 1.6em); /* Responsive font boyutu */
+  border-radius: 6px;
+  z-index: 3; /* Slaytların üzerinde */
+  pointer-events: none; /* Başlığın sürüklemeyi engellememesi için */
 }
 
-/* Slider Butonları */
-.slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  font-size: 2em;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 5; /* Butonlar caption'dan da üstte */
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: background-color 0.3s ease;
-}
-.slider-btn.prev {
-  left: 15px;
-}
-.slider-btn.next {
-  right: 15px;
-}
-.slider-btn:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+@media (max-width: 992px) {
+  .slider {
+    aspect-ratio: 3 / 2;
+  }
 }
 
-/* --- Duyarlılık Ayarları (Farklı Ekranlarda Farklı Oran) --- */
-
-/* Örneğin: Tablet ve daha küçüklerde oranı biraz daha kareye yakın yapalım */
 @media (max-width: 768px) {
   .slider {
-    aspect-ratio: 4 / 3; /* <<<--- Tablet için farklı oran */
+    aspect-ratio: 4 / 3;
     min-height: 200px;
   }
   .slide-caption {
-    font-size: 1.2em;
     bottom: 25px;
     left: 25px;
-    padding: 8px 15px;
+    padding: 10px 18px;
   }
-  .slider-btn {
-    font-size: 1.8em;
-    width: 45px;
-    height: 45px;
-    padding: 8px;
-  } /* Boyutları ayarlayın */
 }
 
-/* Mobil için daha da dikey bir oran */
 @media (max-width: 600px) {
   .slider {
-    aspect-ratio: 3 / 4; /* <<<--- Mobil için dikey oran */
-    min-height: 300px; /* Mobil için min yükseklik gerekebilir */
-  }
-  /* YENİ: Mobil için .slide stilini override et */
-  .slide {
-    background-size: contain; /* <<<--- KIRPMADAN SIĞDIR */
-    background-repeat: no-repeat; /* Tekrarlamayı engelle */
-    /* background-position: center; zaten varsayılan ve üstte tanımlı olmalı */
+    aspect-ratio: 1 / 1;
+
+    min-height: 300px;
   }
 
+  .slide {
+    background-size: cover;
+  }
   .slide-caption {
-    /* Mobil caption stilleri... */
-    font-size: 1.1em;
+    //font-size: 1.1em;
     bottom: 20px;
     left: 20px;
-    padding: 6px 12px;
-    /* Contain kullanınca caption'ın görsel üzerine gelmesini sağlamak gerekebilir */
-    /* Veya caption'ı görselin altına/üstüne konumlandırabilirsiniz */
-    /* Örneğin: */
-    /* bottom: auto; top: 10px; left: 10px; background-color: rgba(0,0,0,0.7); */
-  }
-  .slider-btn {
-    /* Mobil buton stilleri... */
-    font-size: 1.5em;
-    width: 40px;
-    height: 40px;
-    padding: 5px;
-  }
-  .slider-btn.prev {
-    left: 10px;
-  }
-  .slider-btn.next {
-    right: 10px;
+    padding: 8px 15px;
   }
 }
 </style>
