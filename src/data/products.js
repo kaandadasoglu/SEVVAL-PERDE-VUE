@@ -27,7 +27,7 @@ const getImageUrl = (name) => {
     { id: 's1', name: 'Karartma (Blackout) Stor', description: 'Tamamen ışık geçirmez.', image: getImageUrl('stor1.jpg') },
     { id: 's2', name: 'Screen Stor Perde', description: 'Güneşi filtreler, dışarısı görünür.', image: getImageUrl('stor2.jpg') },
     { id: 's3', name: 'Desenli Stor - Çocuk Odası', description: 'Eğlenceli desenler.', image: getImageUrl('stor3.jpg') },
-    { id: 's4', name: 'Zebra Stor Perde', description: 'Hem tül hem güneşlik.', image: getImageUrl('stor4.jpg') },
+    { id: 's4', name: 'Stor Perde', description: 'Hem tül hem güneşlik.', image: getImageUrl('stor4.jpg') },
     { id: 's5', name: 'Kişiye Özel Baskılı Stor', description: 'Kendi tasarımınızı yaratın.', image: getImageUrl('stor5.jpg') }
   ];
   
