@@ -302,9 +302,9 @@ useHead({
         </p>
         <div class="actions">
           <RouterLink
-            :to="{ name: 'category', params: { slug: 'perdeler' } }"
+            :to="{ name: 'category', params: { slug: 'katlamali' } }"
             class="cta-button"
-            >Tüm Perde Modelleri</RouterLink
+            >Katlamalı Perde Modelleri</RouterLink
           >
           <RouterLink to="/iletisim" class="cta-button secondary"
             >İletişime Geç</RouterLink
