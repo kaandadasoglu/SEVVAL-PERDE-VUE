@@ -9,17 +9,18 @@ import {
   jaluziProducts,
   storProducts,
   pliseProducts,
+  katlamaliProducts,
 } from "@/data/products.js";
 
 // Sayfa başlığı ve açıklamasını tanımla
 useHead({
   title:
-    "Ürün Kataloğu - Perdeler, Jaluziler, Storlar, Pliseler | Şevval Perde Kadıköy",
+    "Ürün Kataloğu - Perdeler, Jaluziler, Storlar, Pliseler, Katlamalı | Şevval Perde Kadıköy",
   meta: [
     {
       name: "description",
       content:
-        "Şevval Perde Kadıköy ürün kataloğu. En yeni fon perde, tül perde, ahşap/metal jaluzi, stor, plise perde modellerini ve çeşitlerini inceleyin.",
+        "Şevval Perde Kadıköy ürün kataloğu. En yeni fon perde, tül perde, ahşap/metal jaluzi, stor, plise ve katlamalı perde modellerini ve çeşitlerini inceleyin.",
     },
   ],
 });
@@ -67,6 +68,15 @@ useHead({
         >
       </h2>
       <ProductCarousel :products="pliseProducts" />
+    </section>
+
+    <section class="catalog-section">
+      <h2>
+        <RouterLink :to="{ name: 'category', params: { slug: 'katlamali' } }"
+          >Katlamalı Perdeler</RouterLink
+        >
+      </h2>
+      <ProductCarousel :products="katlamaliProducts" />
     </section>
   </div>
 </template>
