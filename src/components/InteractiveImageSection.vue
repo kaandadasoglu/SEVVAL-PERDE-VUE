@@ -14,13 +14,13 @@ const getImageUrl = (name) => {
   return new URL(`../assets/images/${name}`, import.meta.url).href;
 };
 
-// Tüm perde türleri için hotspot verileri (% oranıyla tanımlı, responsive'ten bağımsız)
+// Hotspot verileri
 const hotspots = ref([
   {
     id: "hs-ahsap-jaluzi",
     style: { top: "30%", left: "7%" },
     data: {
-      title: "Ahşap Jaluzi",
+      title: "Ahşap Jaluzi", // <--- Başlık burada
       description:
         "Doğal ahşabın sıcaklığını ve zarafetini yaşam alanlarınıza taşıyın. Kadıköy ahşap jaluzi seçeneklerimizle mekanlarınıza özel bir dokunuş katın. Ayarlanabilir bantları sayesinde ışık kontrolü tamamen sizin elinizde!",
       detailsLink: "/perde-cesitleri/ahsap-jaluzi",
@@ -31,7 +31,7 @@ const hotspots = ref([
     id: "hs-fon-perde",
     style: { top: "45%", left: "25%" },
     data: {
-      title: "Fon Perde",
+      title: "Fon Perde", // <--- Başlık burada
       description:
         "İstanbul Kadıköy'deki perde mağazamızda birbirinden şık fon perde modelleri sizi bekliyor. Kaliteli kumaşları ve özenli dikimiyle uzun yıllar kullanabileceğiniz fon perdelerimizle evinizin atmosferini değiştirin.",
       detailsLink: "/perde-cesitleri/fon-perde",
@@ -42,7 +42,7 @@ const hotspots = ref([
     id: "hs-tul-perde",
     style: { top: "50%", left: "35%" },
     data: {
-      title: "Tül Perde",
+      title: "Tül Perde", // <--- Başlık burada
       description:
         "İstanbul Kadıköy'de aradığınız en güzel tül perde modelleri burada! Modern, klasik veya country tarzı dekorasyonunuza uyum sağlayacak birbirinden şık tüllerimizle evinizi aydınlatın.",
       detailsLink: "/perde-cesitleri/tul-perde",
@@ -53,7 +53,7 @@ const hotspots = ref([
     id: "hs-katlamali-perde",
     style: { top: "30%", left: "63%" },
     data: {
-      title: "Katlamalı Perde (Roman Shade)",
+      title: "Katlamalı Perde (Roman Shade)", // <--- Başlık burada
       description:
         "Kumaşın yukarı doğru zarif katmanlarla toplandığı dekoratif ve şık perde modeli.",
       detailsLink: "/perde-cesitleri/katlamali-perde",
@@ -64,7 +64,7 @@ const hotspots = ref([
     id: "hs-normal-stor",
     style: { top: "50%", left: "76%" },
     data: {
-      title: "Stor Perde (Roller)",
+      title: "Stor Perde (Roller)", // <--- Başlık burada
       description:
         "Pratik kullanımı ve modern görünümüyle stor perdeler, ev ve iş yerlerinize şıklık katıyor. Farklı renk, desen ve mekanizmalara sahip stor perdelerimizle güneş kontrolünü kolayca sağlayın.",
       detailsLink: "/perde-cesitleri/stor-perde",
@@ -75,7 +75,7 @@ const hotspots = ref([
     id: "hs-plise-perde",
     style: { top: "56%", left: "91%" },
     data: {
-      title: "Plise Perde",
+      title: "Plise Perde", // <--- Başlık burada
       description:
         "Özgün tasarımı ve kullanım kolaylığıyla plise perdeler, pencerelerinize farklı bir boyut kazandırıyor. Özellikle eğimli ve farklı şekilli pencereler için ideal olan plise perdelerimizle mekanlarınıza modern bir dokunuş katın",
       detailsLink: "/perde-cesitleri/plise-perde",
@@ -88,18 +88,22 @@ const hotspots = ref([
 function getHotspotStyle(style) {
   return {
     ...style,
-    width: "5%",
+    width: "8%",
     aspectRatio: "1",
     position: "absolute",
     transform: "translate(-50%, -50%)",
     borderRadius: "50%",
+    overflow: "hidden",
   };
 }
 
+// Popup gösterme fonksiyonu (event parametresi artık ripple için gerekli değil)
 function showPopup(data) {
   selectedHotspot.value = data;
   isModalVisible.value = true;
+  // Ripple efekti artık CSS :hover ile tetiklendiği için JS'de koordinat ayarlamaya gerek yok.
 }
+
 function hidePopup() {
   isModalVisible.value = false;
   selectedHotspot.value = null;
@@ -111,7 +115,8 @@ function hidePopup() {
     <div class="container">
       <h2>Modellerimizi Keşfedin</h2>
       <p>
-        Görsel üzerindeki farklı perde tiplerine tıklayarak bilgi alabilirsiniz.
+        Görsel üzerindeki farklı perde tiplerine dokunarak veya tıklayarak bilgi
+        alabilirsiniz.
       </p>
 
       <div class="image-container">
@@ -127,6 +132,9 @@ function hidePopup() {
           class="hotspot"
           :style="getHotspotStyle(spot.style)"
           @click="showPopup(spot.data)"
+          :title="spot.data.title"
+          @mouseover="handleHover(spot.id)"
+          @mouseleave="handleLeave(spot.id)"
         ></button>
       </div>
     </div>
@@ -148,27 +156,93 @@ function hidePopup() {
 .container {
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0 15px;
 }
 .image-container {
   position: relative;
   width: 100%;
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 20px auto 0;
 }
 .main-interactive-image {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 6px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
 .hotspot {
   background-color: rgba(255, 255, 255, 0.3);
-  border: 2px dashed #444;
+  border: 2px dashed #555;
   z-index: 10;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden; /* Ripple efektinin taşmasını önler */
 }
+
 .hotspot:hover {
   background-color: rgba(255, 255, 255, 0.6);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* --- Su Damlası (Ripple) Efekti --- */
+.hotspot::after {
+  content: "";
+  display: block;
+  position: absolute;
+  /* Efekt her zaman merkezden başlasın */
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(0, 100, 200, 0.4) 10%,
+    transparent 70%
+  );
+  opacity: 0;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  pointer-events: none;
+  /* Animasyonun başlangıç durumunu tanımlamak için animation-fill-mode ekleyebiliriz,
+     ama hover için genellikle gerekmez, fare ayrıldığında sıfırlanır. */
+}
+
+/* Üzerine gelince (hover) animasyonu tetikle */
+.hotspot:hover::after {
+  /* animation: ripple 1.0s ease-out; */ /* Animasyon adı, süresi ve zamanlama fonksiyonu */
+  /* Not: Sürekli tetiklenmesini istemiyorsak JS ile kontrol daha iyi olabilir */
+  /* Şimdilik basit hover ile bırakalım */
+  opacity: 1; /* Görünür yap */
+  transform: translate(-50%, -50%) scale(3); /* Büyüt */
+  transition: transform 1s ease-out, opacity 1s ease-out; /* Animasyon yerine geçiş kullan */
+}
+
+/* @keyframes ripple {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(3);
+  }
+} */
+
+/* Genel Başlık ve Paragraf Stilleri */
+h2 {
+  font-size: 2.2em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.1em;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.6;
 }
 </style>
