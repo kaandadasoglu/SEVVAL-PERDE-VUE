@@ -60,7 +60,7 @@ useHead({
           tercihtir.
         </p>
 
-        <h2>Ahşap Jaluzilerin Benzersiz Avantajları Nelerdir?</h2>
+        <h2>Ahşap Jaluzilerin Benzersiz Avantajları Nelerdir?</h2> 
         <p>
           Ahşap jaluzi perde seçimi, beraberinde pek çok önemli avantajı
           getirir:
