@@ -7,7 +7,7 @@ import { RouterLink } from "vue-router";
     <div class="container header-container">
       <RouterLink to="/" class="logo-link">
         <img
-          src="@/assets/logo.png"
+          src="@/assets/sevval_perde_logo.png"
           alt="Şevval Perde Kadıköy Logo"
           class="logo-img"
         />
@@ -36,8 +36,8 @@ header {
 /* Global .container'ı burada tekrar tanımlamak yerine App.vue'da veya main.css'de tanımlamak daha iyi olabilir */
 /* Şimdilik burada bırakıyorum */
 .container {
-  width: 90%;
-  max-width: 1100px;
+  width: 100%;
+  max-width: 3100px;
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -55,7 +55,7 @@ header {
 }
 
 .logo-img {
-  max-height: 50px;
+  max-height: 100px;
 }
 
 nav ul {
