@@ -10,6 +10,7 @@ import katPerdeImg from "@/assets/images/kat-perde.jpg";
 import katJaluziImg from "@/assets/images/kat-jaluzi.jpg";
 import katStorImg from "@/assets/images/kat-stor.jpg";
 import katPliseImg from "@/assets/images/kat-plise.jpg";
+import katKatlamalieImg from "@/assets/images/kat-katlamali.jpg";
 
 // Sayfa başlığı ve açıklamasını tanımla
 useHead({
@@ -82,7 +83,7 @@ useHead({
               alt="Kadıköy Ahşap ve Metal Jaluzi Perdeler"
               class="highlight-img"
             />
-            <h3>Jaluzi: Hayatına Lüksü Katmayı Sevenlere</h3>
+            <h3>Jaluzi: Hayatına Lüksü Katmayı Sevenlere...</h3>
             <p>
               Işık kontrolünü parmaklarınızın ucuna getiren
               <RouterLink
@@ -121,7 +122,7 @@ useHead({
               alt="Kadıköy Plise Perdeler"
               class="highlight-img"
             />
-            <h3>Plise Perde: Sadelikten Yana Olanlara</h3>
+            <h3>Plise Perde: Sadelikten Yana Olanlara...</h3>
             <p>
               Modern ve minimalist yaşam alanlarının vazgeçilmezi
               <RouterLink
@@ -138,22 +139,26 @@ useHead({
 
           <div class="highlight-item">
             <img
-              :src="katPliseImg"
-              alt="Kadıköy Plise Perdeler"
+              :src="katKatlamalieImg"
+              alt="Kadıköy Katlamali Perdeler"
               class="highlight-img"
             />
-            <h3>Plise Perde: Sadelikten Yana Olanlara</h3>
+            <h3>
+              Katlamalı Perde: Kumaş ve Tülün Zarafetini Kolay Kullanımla
+              Buluşturmak İsteyenlere...
+            </h3>
             <p>
-              Modern ve minimalist yaşam alanlarının vazgeçilmezi
+              Işık kontrolünü parmaklarınızın ucuna getiren
               <RouterLink
-                :to="{ name: 'category', params: { slug: 'pliseler' } }"
-                >plise perdeler</RouterLink
-              >, pratik kullanımı ve şık görünümü bir arada sunar. Hafif yapısı,
-              kolay açılıp kapanma mekanizması ve farklı katlama seçenekleriyle
-              ışığı dilediğiniz gibi kontrol etmenizi sağlar. İster güneşli bir
-              günde ışığı nazikçe filtreleyin, ister tamamen karartın.
-              İstanbul'da fonksiyonel ve estetik plise perde çözümleri için
-              Şevval Perde'nin geniş ürün yelpazesini keşfedin.
+                :to="{ name: 'category', params: { slug: 'katlamali' } }"
+                >katlamalı perdeler</RouterLink
+              >, kumaşın sıcaklığı ve tülün zarafetiyle mekanlarınıza estetik
+              bir dokunuş sunarken, kolay kullanımıyla da öne çıkar. Ofisler ve
+              modern evler için ideal olan katlamalı perdeler, yukarı doğru
+              katlandıkça zarif katmanlar oluşturur. Sıcak bir dokunuş için
+              pamuklu ve keten gibi kumaşlar, tülün hafifliği için transparan
+              seçenekler ve daha birçok farklı doku ve renk alternatifiyle
+              Kadıköy mağazamızda sizi bekliyor.
             </p>
           </div>
         </div>
