@@ -6,11 +6,14 @@ import { createApp } from 'vue'
 import { createHead } from '@vueuse/head'
 import App from './App.vue'
 import router from './router'
+import '@fortawesome/fontawesome-free/css/all.css';
 
 const app = createApp(App)
 
 // YENİ: Head yönetimini etkinleştir
 app.use(createHead())
 app.use(router)
+
+
 
 app.mount('#app')
