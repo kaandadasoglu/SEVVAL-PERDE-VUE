@@ -58,7 +58,7 @@ useHead({
               alt="Kadıköy Tül ve Fon Perde Modelleri"
               class="highlight-img"
             />
-            <h3>Perdeler: Zarafet ve Fonksiyon</h3>
+            <h3>Klasikten Şaşmayanlara...</h3>
             <p>
               Salonlarınıza şıklık katacak
               <RouterLink
@@ -81,7 +81,7 @@ useHead({
               alt="Kadıköy Ahşap ve Metal Jaluzi Perdeler"
               class="highlight-img"
             />
-            <h3>Jaluziler: Modern ve Pratik</h3>
+            <h3>Jaluzi: Hayatına Lüksü Katmayı Sevenlere</h3>
             <p>
               Işık kontrolünü parmaklarınızın ucuna getiren
               <RouterLink
@@ -100,7 +100,9 @@ useHead({
               alt="Kadıköy Stor Perde Çeşitleri"
               class="highlight-img"
             />
-            <h3>Stor Perdeler: Kullanışlı ve Şık</h3>
+            <h3>
+              Stor Perdeler: Modern ve Pratik Çözüm Arayışında Olanlara...
+            </h3>
             <p>
               Tam karartma sağlayan blackout storlardan, güneşi filtreleyen
               screen storlara, hem tül hem güneşlik işlevi gören
