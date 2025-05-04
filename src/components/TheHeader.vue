@@ -1,9 +1,24 @@
 <script setup>
 import { RouterLink } from "vue-router";
+import { ref, onMounted, onUnmounted } from "vue";
+
+const isScrolled = ref(false);
+
+function handleScroll() {
+  isScrolled.value = window.scrollY > 50;
+}
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
 </script>
 
 <template>
-  <header>
+  <header :class="{ scrolled: isScrolled }">
     <div class="container header-container">
       <RouterLink to="/" class="logo-link">
         <img
@@ -26,18 +41,21 @@ import { RouterLink } from "vue-router";
 <style scoped>
 header {
   background-color: #fff;
-  padding: 15px 0;
+  padding: 20px 0;
   border-bottom: 1px solid #eee;
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: all 0.3s ease;
 }
 
-/* Global .container'ı burada tekrar tanımlamak yerine App.vue'da veya main.css'de tanımlamak daha iyi olabilir */
-/* Şimdilik burada bırakıyorum */
+header.scrolled {
+  padding: 5px 0;
+}
+
 .container {
   width: 100%;
-  max-width: 3100px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -56,13 +74,18 @@ header {
 
 .logo-img {
   max-height: 100px;
+  transition: max-height 0.3s ease;
+}
+
+header.scrolled .logo-img {
+  max-height: 60px;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  padding: 0; /* Tarayıcı varsayılanını sıfırla */
-  margin: 0; /* Tarayıcı varsayılanını sıfırla */
+  padding: 0;
+  margin: 0;
 }
 
 nav ul li {
@@ -79,15 +102,9 @@ nav ul li a {
   border-bottom: 2px solid transparent;
 }
 
-/* Aktif link için stil (router/index.js'de tanımlanan class'ı kullanıyoruz) */
-nav ul li a.active, /* linkActiveClass: 'active' */
+nav ul li a.active,
 nav ul li a:hover {
   color: #8b4513;
   border-bottom-color: #8b4513;
-}
-/* Tam eşleşen link için (isteğe bağlı, örn sadece anasayfa için) */
-nav ul li a.exact-active {
-  /* Farklı bir stil verebilirsiniz */
-  /* color: red; */
 }
 </style>
