@@ -5,7 +5,7 @@ import { ref, onMounted, onUnmounted } from "vue";
 const isScrolled = ref(false);
 
 function handleScroll() {
-  isScrolled.value = window.scrollY > 50;
+  isScrolled.value = window.scrollY > 1;
 }
 
 onMounted(() => {
