@@ -5,6 +5,7 @@ import {
   perdeProducts,
   jaluziProducts,
   storProducts,
+  pliseProducts,
 } from "@/data/products.js"; // Veriyi import et
 import { useHead } from "@vueuse/head"; // Meta etiketler için
 import { RouterLink } from "vue-router"; // RouterLink import
@@ -21,6 +22,7 @@ const pageTitle = computed(() => {
     perdeler: "Perdeler",
     jaluziler: "Jaluziler",
     storlar: "Stor Perdeler",
+    pliseler: "Plise Perdeler",
   };
   return (
     titles[props.slug] ||
@@ -33,6 +35,7 @@ const categoryProducts = computed(() => {
   if (props.slug === "perdeler") return perdeProducts;
   if (props.slug === "jaluziler") return jaluziProducts;
   if (props.slug === "storlar") return storProducts;
+  if (props.slug === "pliseler") return pliseProducts;
   return []; // Eşleşen kategori yoksa boş dizi
 });
 
