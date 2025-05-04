@@ -97,7 +97,7 @@ useHead({
           <div class="highlight-item">
             <img
               :src="katStorImg"
-              alt="Kadıköy Stor ve Zebra Perde Çeşitleri"
+              alt="Kadıköy Stor Perde Çeşitleri"
               class="highlight-img"
             />
             <h3>Stor Perdeler: Kullanışlı ve Şık</h3>
@@ -106,7 +106,7 @@ useHead({
               screen storlara, hem tül hem güneşlik işlevi gören
               <RouterLink
                 :to="{ name: 'category', params: { slug: 'storlar' } }"
-                >zebra perdelerden</RouterLink
+                >stor perdelerden</RouterLink
               >, odanıza renk katacak desenli storlara kadar geniş bir yelpaze
               sunuyoruz. Kullanım kolaylığı ve modern görünümü bir arada.
             </p>
