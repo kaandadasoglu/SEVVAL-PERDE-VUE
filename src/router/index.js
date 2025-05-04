@@ -13,7 +13,6 @@ const router = createRouter({
     { path: '/perde-cesitleri/ahsap-jaluzi', name: 'info-ahsap-jaluzi', component: () => import('../views/info/InfoAhsapJaluzi.vue') },
     { path: '/perde-cesitleri/fon-perde', name: 'info-fon-perde', component: () => import('../views/info/InfoFonPerde.vue') },
     { path: '/perde-cesitleri/tul-perde', name: 'info-tul-perde', component: () => import('../views/info/InfoTulPerde.vue') },
-    { path: '/perde-cesitleri/zebra-stor', name: 'info-zebra-stor', component: () => import('../views/info/InfoZebraStor.vue') },
     { path: '/perde-cesitleri/katlamali-perde', name: 'info-katlamali-perde', component: () => import('../views/info/InfoKatlamaliPerde.vue') },
     { path: '/perde-cesitleri/stor-perde', name: 'info-stor-perde', component: () => import('../views/info/InfoStorPerde.vue') },
     { path: '/perde-cesitleri/plise-perde', name: 'info-plise-perde', component: () => import('../views/info/InfoPlisePerde.vue') }
