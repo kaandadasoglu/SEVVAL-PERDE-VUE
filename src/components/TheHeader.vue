@@ -131,9 +131,9 @@ header.header--hidden {
 
 .container {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1800px;
   margin-left: 5px;
-  padding: 0 5px;
+  padding: 0 10px;
 }
 
 .header-container {
