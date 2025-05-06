@@ -1,6 +1,7 @@
 // src/router/index.js
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import Hakkimizda from '../views/Hakkimizda.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -9,6 +10,11 @@ const router = createRouter({
     { path: '/katalog', name: 'catalog', component: () => import('../views/CatalogView.vue') },
     { path: '/iletisim', name: 'contact', component: () => import('../views/ContactView.vue') },
     { path: '/kategori/:slug', name: 'category', component: () => import('../views/CategoryView.vue'), props: true },
+    {
+      path: '/hakkimizda', // Yeni route
+      name: 'hakkimizda',
+      component: Hakkimizda // Yeni bileşen
+    },
     { path: '/urun/:id', name: 'product-detail', component: () => import('../views/ProductDetailView.vue'), props: true },
     { path: '/perde-cesitleri/ahsap-jaluzi', name: 'info-ahsap-jaluzi', component: () => import('../views/info/InfoAhsapJaluzi.vue') },
     { path: '/perde-cesitleri/fon-perde', name: 'info-fon-perde', component: () => import('../views/info/InfoFonPerde.vue') },
