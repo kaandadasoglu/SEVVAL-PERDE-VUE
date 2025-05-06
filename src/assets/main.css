@@ -1,15 +1,21 @@
-/* src/assets/main.css */
-@import './base.css'; /* base.css'i import eder (genellikle en başta olur) */
+@import './base.css'; 
 
-/* Eğer Vite'ın eklediği #app stilleri varsa burada olabilir */
-/* Örneğin: */
-/* #app { */
-/* max-width: 1280px; */
-/* margin: 0 auto; */
-/* padding: 2rem; */
-/* font-weight: normal; */
-/* } */
+html,
+body,
+#app { /* Eğer Vue uygulamanız #app ID'li bir div'e mount ediliyorsa */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  /* min-height: 100vh; body ve html için opsiyonel */
+  overflow-x: hidden; /* BU ÇOK ÖNEMLİ: Yatay kaydırmayı engeller */
+}
 
+/* Genel kutu modeli */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 /* --- Anasayfa Bilgi Bölümleri Stilleri --- */
 .info-section {
