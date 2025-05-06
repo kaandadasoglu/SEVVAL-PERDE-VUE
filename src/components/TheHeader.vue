@@ -269,6 +269,7 @@ header.mobile-menu--open .hamburger-menu__line:nth-child(3) {
 
   .hamburger-menu {
     display: flex;
+    margin-right: 5px;
   }
 }
 </style>
