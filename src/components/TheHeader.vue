@@ -68,7 +68,7 @@ header.scrolled {
   width: 100%;
   max-width: 1300px; /* Maksimum genişlik */
   margin: 0 auto; /* Ortala */
-  padding: 0 20px; /* Yan boşluklar */
+  padding: 0 2px; /* Yan boşluklar */
 }
 
 .header-container {
@@ -125,16 +125,16 @@ nav ul li a:hover {
 
 @media (max-width: 768px) {
   nav ul li {
-    margin-left: 15px;
+    margin-left: 13px;
   }
   nav ul li a {
     font-size: 0.95em;
   }
   .logo-img {
-    max-height: 70px;
+    max-height: 80px;
   }
   header.scrolled .logo-img {
-    max-height: 45px;
+    max-height: 55px;
   }
   header,
   header.scrolled {
@@ -144,7 +144,7 @@ nav ul li a:hover {
 
 @media (max-width: 600px) {
   nav ul li {
-    margin-left: 10px;
+    margin-left: 9px;
   }
   nav ul li a {
     font-size: 0.9em;
