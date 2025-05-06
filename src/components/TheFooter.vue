@@ -303,7 +303,7 @@ import kaanDadasogluLogo from "@/assets/Kaan-Dadasoglu-logo.png";
     text-align: left;
   }
   .crafted-by-logo {
-    max-height: 25px;
+    max-height: 40px;
   }
 }
 </style>
