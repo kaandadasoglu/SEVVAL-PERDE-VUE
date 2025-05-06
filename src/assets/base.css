@@ -1,5 +1,22 @@
 /* src/assets/base.css */
+html,
+body {
+  /* Zaten *, *::before, *::after ile margin:0; padding:0; yapılıyor ama
+     daha spesifik olmak için buraya da eklenebilir veya sadece overflow-x. */
+  width: 100%;
+  overflow-x: hidden; /* Kesinlikle yatay kaydırmayı engelle */
+}
 
+/* Vue uygulamanızın ana mount noktası için (genellikle #app) */
+/* Bu kural, * seçicisinden daha spesifik olduğu için padding/margin'i kesin sıfırlar */
+#app {
+  margin: 0 !important;  /* Herhangi bir yerden gelebilecek margin'i ez */
+  padding: 0 !important; /* Herhangi bir yerden gelebilecek padding'i ez */
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 /* Genel Sıfırlamalar */
 *,
 *::before,
