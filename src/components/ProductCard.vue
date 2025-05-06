@@ -73,6 +73,7 @@ const props = defineProps({
 .product-image {
   margin-bottom: 15px;
   width: 100%;
+  height: 250px;
   aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
