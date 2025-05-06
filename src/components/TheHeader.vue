@@ -131,7 +131,7 @@ header.header--hidden {
 
 .container {
   width: 100%;
-  max-width: 1300px;
+  max-width: 1400px;
   margin-left: 5px;
   padding: 0 5px;
 }
@@ -162,7 +162,7 @@ nav ul {
   display: flex; /* Masaüstünde yan yana */
   align-items: center;
   padding: 0;
-  margin: 0;
+  margin-left: 0;
 }
 nav ul li {
   margin-left: 30px;
