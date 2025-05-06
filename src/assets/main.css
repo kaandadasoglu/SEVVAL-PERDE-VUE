@@ -1,23 +1,6 @@
 @import './base.css'; 
 
-html,
-body,
-#app { /* Eğer Vue uygulamanız #app ID'li bir div'e mount ediliyorsa */
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  /* min-height: 100vh; body ve html için opsiyonel */
-  overflow-x: hidden; /* BU ÇOK ÖNEMLİ: Yatay kaydırmayı engeller */
-}
 
-/* Genel kutu modeli */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* --- Anasayfa Bilgi Bölümleri Stilleri --- */
 .info-section {
     padding: 40px 0;
     border-bottom: 1px solid #e0e0e0;
@@ -26,7 +9,6 @@ body,
     border-bottom: none;
 }
 
-/* Hoş Geldiniz Bölümü */
 .welcome-section {
     text-align: center;
     background-color: #ffffff;
@@ -77,7 +59,6 @@ body,
 }
 
 
-/* Kategori Vurguları Bölümü */
 .category-highlights {
     background-color: #f5f5dc;
 }
@@ -198,10 +179,9 @@ body,
 
 .contact-info h2,
 .map-container h2 {
-  /* font-size: 1.6em; */ /* İsteğe bağlı boyut ayarı */
-  color: #8B4513; /* Başlık rengi */
+  color: #8B4513;
   margin-bottom: 20px;
-  border-bottom: 2px solid #eee; /* Başlık altı çizgi */
+  border-bottom: 2px solid #eee;
   padding-bottom: 10px;
 }
 
