@@ -104,7 +104,7 @@ header.header--hidden {
   width: 100%;
   max-width: 1300px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 5px;
 }
 
 .header-container {
@@ -121,7 +121,7 @@ header.header--hidden {
 
 .logo-img {
   display: block;
-  max-height: 60px; /* Sabit logo yüksekliği */
+  max-height: 90px; /* Sabit logo yüksekliği */
   transition: filter 0.3s ease; /* Hover için (opsiyonel) */
 }
 /* Logo üzerine gelince hafif bir efekt (opsiyonel)
@@ -139,7 +139,7 @@ nav ul {
 }
 
 nav ul li {
-  margin-left: 30px;
+  margin-left: 20px;
 }
 
 nav ul li a {
@@ -167,7 +167,7 @@ nav ul li a:hover {
     font-size: 0.95em;
   }
   .logo-img {
-    max-height: 50px;
+    max-height: 100px;
   }
   header {
     padding: 10px 0;
