@@ -124,8 +124,7 @@ function hidePopup() {
     <div class="container">
       <h2>Modellerimizi Keşfedin</h2>
       <p>
-        Görsel üzerindeki farklı perde tiplerine dokunarak veya tıklayarak bilgi
-        alabilirsiniz.
+        Görsel üzerindeki farklı perde tiplerine dokunarak bilgi alabilirsiniz.
       </p>
 
       <div class="image-container">
