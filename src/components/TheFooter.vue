@@ -272,12 +272,12 @@ import kaanDadasogluLogo from "@/assets/Kaan-Dadasoglu-logo.png";
     flex-direction: column; /* Alt alta */
   }
   .copyright-text {
-    order: 2; /* Telif hakkı alta */
+    order: 1;
     font-size: 0.9em;
-    margin-top: 8px; /* Üstündekiyle boşluk */
+    margin-top: 8px;
   }
   .crafted-by {
-    order: 1; /* Crafted by üste */
+    order: 2;
   }
   .footer-bottom-left-spacer {
     display: none; /* Mobilde bu boşluğa gerek yok */
@@ -285,7 +285,6 @@ import kaanDadasogluLogo from "@/assets/Kaan-Dadasoglu-logo.png";
 }
 
 @media (max-width: 768px) {
-  /* Diğer mobil stilleriniz aynı kalır */
   .footer-container {
     padding-left: 15px;
     padding-right: 15px;
