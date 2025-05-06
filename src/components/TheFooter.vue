@@ -89,7 +89,6 @@ import kaanDadasogluLogo from "@/assets/Kaan-Dadasoglu-logo.png";
 </template>
 
 <style scoped>
-/* ... (site-footer, footer-container, footer-about, footer-links, footer-contact, ve diğer üst bölüm stilleri aynı kalır) ... */
 .site-footer {
   background-color: #333;
   color: #ccc;
@@ -259,7 +258,7 @@ import kaanDadasogluLogo from "@/assets/Kaan-Dadasoglu-logo.png";
 }
 
 .crafted-by-logo {
-  max-height: 30px;
+  max-height: 60px;
   margin-right: 8px;
   vertical-align: middle;
 }
