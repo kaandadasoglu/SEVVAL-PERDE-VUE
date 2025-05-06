@@ -134,7 +134,7 @@ useHead({
     font-size: 2.1em;
   }
   .catalog-section h2 {
-    font-size: 1.6em;
+    font-size: 1.8em;
   }
 }
 @media (max-width: 600px) {
@@ -146,7 +146,7 @@ useHead({
     margin-bottom: 30px;
   }
   .catalog-section h2 {
-    font-size: 1.4em;
+    font-size: 1.6em;
     margin-bottom: 20px;
   }
 }
