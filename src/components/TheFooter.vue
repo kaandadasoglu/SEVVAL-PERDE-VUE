@@ -25,6 +25,7 @@ const instagramUsername = "@sevvalperde";
           <li><router-link to="/">Anasayfa</router-link></li>
           <li><router-link to="/katalog">Katalog</router-link></li>
           <li><router-link to="/iletisim">İletişim</router-link></li>
+          <li><router-link to="/hakkimizda">Hakkımızda</router-link></li>
         </ul>
       </div>
 
