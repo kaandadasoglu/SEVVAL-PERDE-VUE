@@ -3,7 +3,7 @@ const instagramUrl = "https://www.instagram.com/sevvalperde/";
 const instagramUsername = "@sevvalperde";
 
 const kaanDadasogluLinkedIn = "https://www.linkedin.com/in/kaan-dadasoglu/";
-import kaanDadasogluLogo from "@/assets/kaan-dadasoglu-logo.png";
+import kaanDadasogluLogo from "@/assets/Kaan-Dadasoglu-logo.png";
 </script>
 
 <template>
