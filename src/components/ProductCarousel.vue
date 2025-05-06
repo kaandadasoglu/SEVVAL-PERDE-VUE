@@ -190,6 +190,7 @@ watch(
 .carousel-item-override {
   flex: 0 0 auto; /* Esneme/küçülme yapma */
   width: 260px; /* Sabit genişlik */
+  height: 430px;
   margin-right: 15px; /* Ürün arası boşluk */
 }
 
