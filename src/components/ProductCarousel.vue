@@ -259,12 +259,12 @@ watch(
 @media (max-width: 540px) {
   .product-carousel-container {
     width: 270px;
-    height: 400px;
+
     padding: 0 25px;
   }
   .carousel-item-override {
     width: 220px;
-    height: 400px;
+
     margin-right: 0;
   }
   .carousel-btn {
