@@ -2,28 +2,61 @@
 import { RouterLink } from "vue-router";
 import { ref, onMounted, onUnmounted } from "vue";
 
-// Bu kod header'ın scroll ile küçülmesini sağlar
-// isScrolled değişkeni window.scrollY > 1 olduğunda true olur
-const isScrolled = ref(false);
+const isHeaderVisible = ref(true);
+const lastScrollY = ref(0);
+const headerHideThreshold = 70; // Header'ın gizlenmeye başlaması için scroll eşiği (header yüksekliğine yakın bir değer)
+let ticking = false; // requestAnimationFrame için bayrak
 
-function handleScroll() {
-  // Eşiği 1 piksel olarak ayarladık (çok hassas)
-  // İsterseniz tekrar 10 veya 50 gibi bir değere çekebilirsiniz.
-  isScrolled.value = window.scrollY > 1;
+function handleActualScroll() {
+  const currentScrollY = window.scrollY;
+
+  // En tepedeysek (veya çok az scroll edilmişse) her zaman göster
+  if (currentScrollY <= 10) {
+    if (!isHeaderVisible.value) isHeaderVisible.value = true;
+  }
+  // Belirli bir eşiği geçtikten sonra yön kontrolü yap
+  else if (currentScrollY > headerHideThreshold) {
+    if (currentScrollY < lastScrollY.value) {
+      // Yukarı scroll: Header'ı göster
+      if (!isHeaderVisible.value) isHeaderVisible.value = true;
+    } else if (currentScrollY > lastScrollY.value) {
+      // Aşağı scroll (ve son scroll pozisyonundan belirgin bir fark varsa): Header'ı gizle
+      // Hızlı yukarı-aşağı jitter'ı engellemek için küçük bir fark eklenebilir (opsiyonel)
+      // if (currentScrollY - lastScrollY.value > 5) {
+      if (isHeaderVisible.value) isHeaderVisible.value = false;
+      // }
+    }
+  }
+  // Eşik değeri altında ama 10px'den fazla scroll edilmişse görünür tut
+  else {
+    if (!isHeaderVisible.value) isHeaderVisible.value = true;
+  }
+
+  lastScrollY.value = Math.max(0, currentScrollY);
+}
+
+function onScroll() {
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      handleActualScroll();
+      ticking = false; // İşlem bitti, bir sonraki frame için hazır
+    });
+    ticking = true; // İşlem için frame istendi
+  }
 }
 
 onMounted(() => {
-  window.addEventListener("scroll", handleScroll);
-  handleScroll(); // İlk yüklemede de kontrol et
+  lastScrollY.value = window.scrollY;
+  window.addEventListener("scroll", onScroll, { passive: true });
 });
 
 onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll);
+  window.removeEventListener("scroll", onScroll);
 });
 </script>
 
 <template>
-  <header :class="{ scrolled: isScrolled }">
+  <header :class="{ 'header--hidden': !isHeaderVisible }">
     <div class="container header-container">
       <RouterLink to="/" class="logo-link" aria-label="Anasayfa">
         <img
@@ -46,36 +79,38 @@ onUnmounted(() => {
 
 <style scoped>
 header {
-  background-color: #fff;
-  padding: 20px 0;
+  background-color: rgba(255, 255, 255, 0.98);
+  padding: 15px 0;
   border-bottom: 1px solid #eee;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
-  left: 0; /* sticky ve tam genişlik için */
-  width: 100%; /* sticky ve tam genişlik için */
+  left: 0;
+  width: 100%;
   z-index: 1000;
-  transition: padding 0.3s ease, background-color 0.3s ease,
-    box-shadow 0.3s ease; /* padding geçişi eklendi */
-  box-shadow: none;
+  transform: translateY(0);
+  /* cubic-bezier(0.25, 0.1, 0.25, 1) daha yaygın bir ease */
+  transition: transform 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+  will-change: transform; /* Tarayıcıya transform'un değişeceğini bildirir */
 }
 
-header.scrolled {
-  padding: 5px 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); /* Scroll sonrası hafif gölge */
+/* Header'ı gizlemek için kullanılacak sınıf */
+header.header--hidden {
+  transform: translateY(-100%); /* Header yüksekliği kadar yukarı kaydır */
+  box-shadow: none;
 }
 
 .container {
   width: 100%;
-  max-width: 1300px; /* Maksimum genişlik */
-  margin: 0 auto; /* Ortala */
-  padding: 0 2px; /* Yan boşluklar */
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100%; /* Geçişin düzgün olması için */
 }
 
 .logo-link {
@@ -86,69 +121,57 @@ header.scrolled {
 
 .logo-img {
   display: block;
-  max-height: 90px; /* Başlangıç yüksekliği */
-  transition: max-height 0.3s ease-out; /* Yükseklik geçişi */
+  max-height: 60px; /* Sabit logo yüksekliği */
+  transition: filter 0.3s ease; /* Hover için (opsiyonel) */
 }
-
-header.scrolled .logo-img {
-  max-height: 55px; /* Küçülmüş yükseklik */
+/* Logo üzerine gelince hafif bir efekt (opsiyonel)
+.logo-link:hover .logo-img {
+  filter: brightness(1.1);
 }
+*/
 
 nav ul {
   list-style: none;
   display: flex;
-  align-items: center; /* Linkleri dikeyde ortala */
+  align-items: center;
   padding: 0;
   margin: 0;
 }
 
 nav ul li {
-  margin-left: 30px; /* Menü elemanları arası boşluk */
+  margin-left: 30px;
 }
 
 nav ul li a {
   text-decoration: none;
-  color: #444; /* Yazı rengi */
-  font-weight: 600; /* Yazı kalınlığı */
-  padding: 8px 4px; /* Tıklama alanı */
+  color: #444;
+  font-weight: 600;
+  padding: 8px 4px;
   transition: color 0.25s ease, border-bottom-color 0.25s ease;
-  position: relative; /* Alt çizgi için */
-  border-bottom: 2px solid transparent; /* Başlangıçta görünmez çizgi */
+  position: relative;
+  border-bottom: 2px solid transparent;
   letter-spacing: 0.5px;
 }
 
 nav ul li a.router-link-exact-active,
 nav ul li a:hover {
-  color: #a0522d; /* Vurgu rengi */
-  border-bottom-color: #a0522d; /* Alt çizgi rengi */
+  color: #a0522d;
+  border-bottom-color: #a0522d;
 }
 
 @media (max-width: 768px) {
   nav ul li {
-    margin-left: 13px;
+    margin-left: 15px;
   }
   nav ul li a {
     font-size: 0.95em;
   }
   .logo-img {
-    max-height: 80px;
+    max-height: 50px;
   }
-  header.scrolled .logo-img {
-    max-height: 55px;
-  }
-  header,
-  header.scrolled {
+  header {
     padding: 10px 0;
   }
-}
-
-@media (max-width: 600px) {
-  nav ul li {
-    margin-left: 9px;
-  }
-  nav ul li a {
-    font-size: 0.9em;
-    padding: 6px 2px;
-  }
+  /* headerHideThreshold mobil için farklı ayarlanabilir (JS içinde) */
 }
 </style>
