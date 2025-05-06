@@ -2,19 +2,20 @@
 import { useHead } from "@vueuse/head";
 import { RouterLink } from "vue-router"; // İsteğe bağlı olarak link eklemek için
 
-// Sayfa başlığı ve meta açıklaması
+// Sayfa başlığı ve meta açıklaması (yeni metne göre güncellendi)
 useHead({
-  title: "Hakkımızda - Şevval Perde | Kadıköy Perde Uzmanı",
+  title: "Hakkımızda - Şevval Perde | 1999'dan Beri Kadıköy'de Kalite",
   meta: [
     {
       name: "description",
       content:
-        "Şevval Perde'nin hikayesini, misyonunu ve değerlerini keşfedin. İstanbul Kadıköy'de yılların tecrübesiyle perde çözümleri sunuyoruz.",
+        "Şevval Perde'nin 1999'da Kadıköy Göztepe'de başlayan hikayesini, kalite anlayışını, geniş ürün yelpazesini ve müşteri odaklı yaklaşımını keşfedin.",
     },
   ],
 });
 
 // Hakkımızda sayfası için görsel (İsteğe bağlı, kendi görselinizle değiştirin)
+// Eğer bu görseli kullanmayacaksanız bu satırı ve template'deki ilgili kısmı silebilirsiniz.
 import aboutImage from "@/assets/images/hakkimizda-gorsel.jpg"; // Örnek görsel yolu
 </script>
 
@@ -24,60 +25,90 @@ import aboutImage from "@/assets/images/hakkimizda-gorsel.jpg"; // Örnek görse
 
     <div class="about-content">
       <div class="about-text">
-        <h2>Kadıköy'de Perde Sanatı: Şevval Perde</h2>
+        <h2>Şevval Perde: Kadıköy'ün Perde Uzmanı</h2>
         <p>
-          İstanbul'un kalbi Kadıköy'de, **Şevval Perde** olarak yıllardır yaşam
-          alanlarınıza estetik ve işlevsellik katmanın gururunu yaşıyoruz.
-          1998'den beri süregelen tecrübemizle, perde seçiminin bir mekanın
-          atmosferini nasıl tamamen değiştirebileceğinin bilincindeyiz. Bu
-          bilinçle, her müşterimizin zevkine ve ihtiyacına özel çözümler sunmak
-          için tutkuyla çalışıyoruz.
+          Şevval Perde'nin hikayesi, 1999 yılında İstanbul'un kalbi Kadıköy
+          Göztepe'de başladı. Kuruluşumuzun temelinde yatan vizyon, her zaman
+          üstün kaliteyi erişilebilir fiyatlarla buluşturarak, yaşam alanlarına
+          değer katmak oldu. Bu ilke, geçen yıllar boyunca rehberimiz olmaya
+          devam etti.
+        </p>
+        <p>
+          Kurucumuz Mahmut Şeftalicioğlu'nun 1989 yılından itibaren sektörde
+          edindiği derin deneyim ve bilgi birikimi, Şevval Perde'nin sağlam
+          temeller üzerine inşa edilmesini sağladı. Bu tecrübe, yıllar içinde
+          binlerce memnun müşterimizin referansıyla taçlandı.
         </p>
 
-        <h3>Misyonumuz & Vizyonumuz</h3>
+        <h3>Kalite Anlayışımız</h3>
         <p>
-          Misyonumuz, sadece pencere örtmek değil, aynı zamanda evlerinize ve iş
-          yerlerinize sıcaklık, şıklık ve konfor katmaktır. En kaliteli
-          malzemeleri, modern tasarımları ve uzman işçiliği bir araya getirerek,
-          beklentilerinizin ötesinde hizmet sunmayı hedefliyoruz. Vizyonumuz
-          ise, Kadıköy ve çevresinde perde denince akla gelen ilk isim olmak,
-          yenilikçi yaklaşımlarımız ve müşteri memnuniyeti odaklı hizmet
-          anlayışımızla sektörde fark yaratmaktır.
+          Şevval Perde olarak, ürünlerimizde kullanılan malzeme kalitesine en
+          üst düzeyde önem veriyoruz. Kumaş seçiminden dikişine kadar her
+          aşamada titizlikle çalışıyor, uzun ömürlü ve estetik açıdan kusursuz
+          ürünler sunmayı hedefliyoruz. İşçiliğimizdeki detaycılık, her perdenin
+          yaşam alanlarınıza değer katan özel bir dokunuş olmasını sağlar.
         </p>
 
-        <h3>Değerlerimiz</h3>
-        <ul>
-          <li>
-            <strong>Kalite:</strong> Uzun ömürlü, dayanıklı ve estetik ürünler
-            sunmak.
-          </li>
-          <li>
-            <strong>Müşteri Odaklılık:</strong> İhtiyaçlarınızı dinlemek ve size
-            en uygun çözümü bulmak.
-          </li>
-          <li>
-            <strong>Uzmanlık:</strong> Deneyimli ekibimizle doğru danışmanlık ve
-            kusursuz montaj hizmeti sağlamak.
-          </li>
-          <li>
-            <strong>Güvenilirlik:</strong> Söz verdiğimiz zamanda, söz
-            verdiğimiz kalitede hizmet sunmak.
-          </li>
-          <li>
-            <strong>Estetik:</strong> Mekanlarınıza değer katacak şık ve modern
-            tasarımlar sunmak.
-          </li>
-        </ul>
-
-        <h3>Neden Biz?</h3>
+        <h3>Geniş Ürün Yelpazemiz</h3>
         <p>
-          Geniş ürün yelpazemizde tül perdelerden fonlara, modern storlardan
-          kullanışlı jaluzilere kadar aradığınız her şeyi bulabilirsiniz.
-          Ücretsiz keşif ve danışmanlık hizmetimizle mekanınıza en uygun perdeyi
-          seçmenize yardımcı oluyor, profesyonel montaj ekibimizle de son
-          dokunuşu kusursuzca yapıyoruz. Şevval Perde olarak önceliğimiz, sizin
-          memnuniyetiniz ve yaşam alanlarınızın güzelliğidir.
+          Müşterilerimizin farklı ihtiyaçlarına ve zevklerine hitap edebilmek
+          için geniş bir ürün yelpazesi sunuyoruz. Zarif fon perdelerden, ışığı
+          yumuşatan tül perdelere, modern ve kullanışlı stor perdelerden, şık ve
+          kontrol mekanizmalı jaluzilere kadar her türlü perde çözümünü Şevval
+          Perde'de bulabilirsiniz.
         </p>
+
+        <h3>Tasarım Anlayışımız</h3>
+        <p>
+          Mekanların ruhunu yansıtan tasarımlara inanıyoruz. Klasik çizgilerden
+          modern minimalizme, avangart detaylardan sıcak country esintilerine
+          kadar farklı tasarım anlayışlarına hakimiz. Uzman ekibimiz, en güncel
+          trendleri ve kişisel tercihlerinizi harmanlayarak yaşam alanlarınıza
+          özgün bir stil katmanıza yardımcı olur.
+        </p>
+
+        <h3>Teknolojik Entegrasyon</h3>
+        <p>
+          Geleceğin yaşam alanlarına uyum sağlayacak çözümler sunmaktan mutluluk
+          duyuyoruz. Akıllı ev sistemleriyle entegre edilebilen motorlu perde
+          seçeneklerimiz, konfor ve kullanım kolaylığını bir üst seviyeye
+          taşıyor.
+        </p>
+
+        <h3>Sürdürülebilirlik</h3>
+        <p>
+          Çevreye duyarlılık, iş yapış biçimimizin önemli bir parçasıdır.
+          Sürdürülebilir kaynaklardan elde edilen ve çevreye minimum etki eden
+          malzemeleri tercih etmeye özen gösteriyoruz.
+        </p>
+
+        <h3>Müşteri Yaklaşımımız ve Size Özel Çözümler</h3>
+        <p>
+          Şevval Perde ekibi olarak benimsediğimiz en önemli değer, her
+          misafirimize özenle yaklaşmak ve onların yaşam tarzlarını, hayallerini
+          anlamaktır. Müşterilerimizi sadece birer alıcı olarak görmüyor, yaşam
+          alanlarını en iyi ve en estetik çözümlerle buluşturmak için titizlikle
+          çalışıyoruz. Bu yaklaşımımız, perde seçiminden montajına kadar her
+          aşamada hissedilir.
+        </p>
+        <p>
+          Şevval Perde'den alışveriş yapmak, sadece bir perde edinmekten çok
+          daha fazlasını ifade eder. Müşterilerimiz, yılların getirdiği
+          tecrübeyle harmanlanmış, en güncel tasarım trendlerini yansıtan kişiye
+          özel danışmanlık ve tasarım desteği alırlar. Mekanlarınızın ruhunu en
+          iyi yansıtacak renkler, desenler ve kumaşlar, uzman ekibimiz
+          tarafından özenle seçilir ve size özel çözümler sunulur.
+        </p>
+
+        <h3>25 Yılı Aşkın Tecrübe</h3>
+        <p>
+          Geçen 25 yılı aşkın sürede edindiğimiz bilgi birikimi ve müşteri
+          memnuniyeti odaklı yaklaşımımızla, İstanbul'da perde sektöründe
+          güvenilir bir marka haline geldik. Şevval Perde olarak, yaşam
+          alanlarınıza zarafet, konfor ve özgünlük katmaya devam etmek için ilk
+          günkü heyecanımızla çalışıyoruz.
+        </p>
+
         <div class="about-cta">
           <RouterLink to="/katalog" class="cta-button"
             >Ürünlerimizi Görün</RouterLink
@@ -89,7 +120,7 @@ import aboutImage from "@/assets/images/hakkimizda-gorsel.jpg"; // Örnek görse
       </div>
 
       <div class="about-image" v-if="aboutImage">
-        <img :src="aboutImage" alt="Şevval Perde Mağaza İçinden Bir Görünüm" />
+        <img :src="aboutImage" alt="Şevval Perde Mağaza Deneyimi" />
       </div>
     </div>
   </div>
@@ -116,14 +147,16 @@ h1 {
 }
 
 .about-text {
-  flex: 2; /* Metin alanı daha geniş olsun */
+  flex: 2; /* Metin alanı daha geniş olsun (eğer resim varsa) */
   min-width: 300px; /* Minimum genişlik */
 }
 
 .about-image {
-  flex: 1; /* Resim alanı */
+  flex: 1; /* Resim alanı (eğer resim varsa) */
   min-width: 280px;
   text-align: center; /* Resmi ortala */
+  position: sticky; /* Resmin scroll ile kayarken belli bir yerde kalması için (opsiyonel) */
+  top: 100px; /* Sticky pozisyonu için üstten boşluk (header yüksekliğine göre ayarlayın) */
 }
 
 .about-image img {
@@ -135,26 +168,28 @@ h1 {
 
 .about-text h2 {
   color: #a0522d; /* Vurgu rengi */
-  margin-bottom: 15px;
-  font-size: 1.8em;
-  padding-bottom: 5px;
+  margin-bottom: 20px; /* Alt boşluk artırıldı */
+  font-size: 1.9em; /* Biraz büyütüldü */
+  padding-bottom: 10px; /* Alt çizgi için boşluk */
   border-bottom: 1px solid #eee;
 }
 
 .about-text h3 {
-  color: #8b4513;
-  margin-top: 30px;
-  margin-bottom: 10px;
-  font-size: 1.4em;
+  color: #8b4513; /* Ana renk */
+  margin-top: 35px; /* Üst boşluk artırıldı */
+  margin-bottom: 15px; /* Alt boşluk artırıldı */
+  font-size: 1.5em; /* Biraz büyütüldü */
 }
 
 .about-text p {
   color: #444;
-  line-height: 1.7;
-  margin-bottom: 20px;
-  text-align: justify;
+  line-height: 1.75; /* Satır yüksekliği artırıldı */
+  margin-bottom: 25px; /* Paragraflar arası boşluk artırıldı */
+  text-align: justify; /* İki yana yaslı (daha profesyonel bir görünüm için) */
 }
 
+/* Eğer ul listesi kullanılmayacaksa bu stiller silinebilir veya yorum satırı yapılabilir */
+/*
 .about-text ul {
   list-style: none;
   padding-left: 0;
@@ -166,20 +201,23 @@ h1 {
   color: #444;
   margin-bottom: 12px;
   position: relative;
-  padding-left: 25px; /* İkon için yer */
+  padding-left: 25px;
 }
 
 .about-text ul li::before {
-  content: "✓"; /* Veya Font Awesome ikonu: content: '\f00c'; font-family: 'Font Awesome 5 Free'; font-weight: 900; */
-  color: #8b4513; /* Ana renk */
+  content: "✓";
+  color: #8b4513;
   position: absolute;
   left: 0;
   top: 2px;
-  font-weight: bold; /* Check işareti için */
+  font-weight: bold;
 }
+*/
 
 .about-text strong {
+  /* Metin içindeki strong etiketleri için */
   font-weight: 600;
+  color: #333;
 }
 
 .about-cta {
@@ -218,13 +256,23 @@ h1 {
   border-color: #a0522d;
 }
 
+/* Duyarlılık */
+@media (max-width: 991px) {
+  /* Resim ve metnin alt alta geçtiği breakpoint */
+  .about-image {
+    position: static; /* Sticky pozisyonunu mobilde kaldır */
+    margin-top: 30px; /* Metinden sonra boşluk */
+  }
+}
+
 @media (max-width: 768px) {
   h1 {
     font-size: 2em;
     margin-bottom: 30px;
   }
   .about-content {
-    flex-direction: column-reverse;
+    /* flex-direction: column-reverse; İsteğe bağlı, resim üste gelebilir */
+    flex-direction: column; /* Veya metin üstte kalsın */
   }
   .about-text h2 {
     font-size: 1.6em;
@@ -234,7 +282,9 @@ h1 {
   }
   .about-text p,
   .about-text ul li {
+    /* ul hala kullanılmıyor ama stil burada kalabilir */
     font-size: 0.95em;
+    text-align: left; /* Mobilde sola yaslı daha okunaklı olabilir */
   }
   .about-cta {
     justify-content: center;
