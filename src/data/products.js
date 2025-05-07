@@ -29,18 +29,38 @@ const getImageUrl = (name) => {
   ];
 
   export const pliseProducts = [
-    { id: 's1', name: 'Karartma Plise Perde', description: 'Tamamen ışık geçirmez.', image: getImageUrl('Karartma Plise Perde.png') },
-    { id: 's2', name: 'Tül Plise Perde', description: 'Güneşi filtreler, dışarısı görünür.', image: getImageUrl('Tül Plise Perde.png') },
-    { id: 's3', name: 'Desenli Plise-Çocuk Odası', description: 'Eğlenceli desenler.', image: getImageUrl('Desenli Plise-Çocuk Odası.png') },
-    { id: 's4', name: 'Düz Plise Perde', description: 'Hem tül hem güneşlik.', image: getImageUrl('Düz Plise Perde.png') }
+    {
+        id: 'pl1',
+        name: 'Karartma Plise Perde',
+        description: 'Işığı tamamen keser, tam mahremiyet sağlar.', // Kısaltıldı
+        image: getImageUrl('Karartma Plise Perde.png')
+    },
+    {
+        id: 'pl2',
+        name: 'Tül Plise Perde',
+        description: 'Doğal ışığı süzer, gizliliği korur.', // Kısaltıldı
+        image: getImageUrl('Tül Plise Perde.png')
+    },
+    {
+        id: 'pl3',
+        name: 'Desenli Plise-Çocuk Odası',
+        description: 'Çocuk odalarına neşe katan canlı desenler.', // Kısaltıldı
+        image: getImageUrl('Desenli Plise-Çocuk Odası.png')
+    },
+    {
+        id: 'pl4',
+        name: 'Düz Plise Perde',
+        description: 'Sade, modern ve her dekora uyumlu.', // Kısaltıldı
+        image: getImageUrl('Düz Plise Perde.png')
+    }
   ];
 
   export const katlamaliProducts = [
-    { id: 's1', name: 'Karartma (Blackout) Stor', description: 'Tamamen ışık geçirmez.', image: getImageUrl('Black-Out Stor.png') },
-    { id: 's2', name: 'Screen Stor Perde', description: 'Güneşi filtreler, dışarısı görünür.', image: getImageUrl('stor2.jpg') },
-    { id: 's3', name: 'Desenli Stor - Çocuk Odası', description: 'Eğlenceli desenler.', image: getImageUrl('stor3.jpg') },
-    { id: 's4', name: 'Stor Perde', description: 'Hem tül hem güneşlik.', image: getImageUrl('stor4.jpg') },
-    { id: 's5', name: 'Kişiye Özel Baskılı Stor', description: 'Kendi tasarımınızı yaratın.', image: getImageUrl('stor5.jpg') }
+    { id: 'k1', name: 'Keten Katlamalı Perde - Naturel', description: 'Doğal keten dokusuyla şık ve modern.', image: getImageUrl('Keten Katlamali Perde-Naturel.png') },
+    { id: 'k2', name: 'Pamuklu Katlamalı Perde - Pastel Mavi', description: 'Yumuşak pamuklu kumaş, huzurlu bir ortam.', image: getImageUrl('Pamuklu Katlamali Perde-Pastel Mavi.png') },
+    { id: 'k3', name: 'Desenli Katlamalı Perde - Çiçekli', description: 'Canlı renkler ve zarif çiçek desenleri.', image: getImageUrl('Desenli Katlamali Perde-Cicekli.png') },
+    { id: 'k4', name: 'Karartma Katlamalı Perde - Gri', description: 'Işığı tamamen keser, mahremiyet sağlar.', image: getImageUrl('Karartma Katlamali Perde-Gri.png') },
+    { id: 'k5', name: 'Tül Katlamalı Perde - Beyaz', description: 'Hafif ve uçuş uçuş, modern bir alternatif.', image: getImageUrl('Tul Katlamali Perde-Beyaz.png') }
   ];
   
  // YENİ: Tüm ürünleri tek bir dizide birleştirelim (arama için)
