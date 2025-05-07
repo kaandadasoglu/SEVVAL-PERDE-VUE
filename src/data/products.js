@@ -32,8 +32,7 @@ const getImageUrl = (name) => {
     { id: 's1', name: 'Karartma Plise Perde', description: 'Tamamen ışık geçirmez.', image: getImageUrl('Karartma Plise Perde.png') },
     { id: 's2', name: 'Tül Plise Perde', description: 'Güneşi filtreler, dışarısı görünür.', image: getImageUrl('Tül Plise Perde.png') },
     { id: 's3', name: 'Desenli Plise-Çocuk Odası', description: 'Eğlenceli desenler.', image: getImageUrl('Desenli Plise-Çocuk Odası.png') },
-    { id: 's4', name: 'Düz Plise Perde', description: 'Hem tül hem güneşlik.', image: getImageUrl('Düz Plise Perde.png') },
-    { id: 's5', name: 'Kişiye Özel Baskılı Stor', description: 'Kendi tasarımınızı yaratın.', image: getImageUrl('stor5.jpg') }
+    { id: 's4', name: 'Düz Plise Perde', description: 'Hem tül hem güneşlik.', image: getImageUrl('Düz Plise Perde.png') }
   ];
 
   export const katlamaliProducts = [
