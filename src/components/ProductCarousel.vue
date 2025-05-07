@@ -157,18 +157,43 @@ function onDragStart(event) {
 function onDragMove(event) {
   if (!isDragging.value) return;
 
-  // Prevent page scroll during horizontal swipe on touch devices
-  if (event.type === "touchmove" && event.cancelable) {
-    // A more sophisticated check could be to see if horizontal movement > vertical
-    // For now, if dragging, we assume horizontal intent for the carousel
-    // event.preventDefault(); // This might be too aggressive if vertical scroll is needed elsewhere. Test carefully.
-  }
+  // Opsiyonel: Sayfa dikey kaydırmasını engelleme (test edilerek ayarlanmalı)
+  // if (event.type === 'touchmove' && event.cancelable) {
+  //   // event.preventDefault(); // Yatay sürükleme önceliği için
+  // }
 
   const currentX = getEventX(event);
   const diffX = currentX - dragStartX.value;
-  gridRef.value.style.transform = `translateX(${
-    dragInitialTransformX.value + diffX
-  }px)`;
+  let proposedTranslateX = dragInitialTransformX.value + diffX;
+
+  // Sınırlama için minimum ve maksimum translateX değerlerini hesapla
+  const minClampTranslateX = 0; // İçeriği başlangıçtan daha fazla sağa sürükleyemezsiniz (pozitif X yönü)
+  let maxClampTranslateX = 0; // İçeriği sondan daha fazla sola sürükleyemezsiniz (negatif X yönü)
+
+  if (gridRef.value && productGridWrapperRef.value && totalItems.value > 0) {
+    const scrollWidth = gridRef.value.scrollWidth; // Tüm ürünlerin toplam genişliği (marginler dahil)
+    const containerWidth = productGridWrapperRef.value.clientWidth; // Görünür alanın genişliği
+
+    if (scrollWidth > containerWidth) {
+      // En fazla ne kadar sola kaydırılabileceği (negatif değer)
+      maxClampTranslateX = -(scrollWidth - containerWidth);
+    }
+    // Eğer tüm içerik zaten sığıyorsa, maxClampTranslateX = 0 kalır, bu da sürüklemeyi engeller.
+  }
+
+  // maxClampTranslateX'in minClampTranslateX'ten daha pozitif olmamasını sağla
+  // (genellikle scrollWidth < containerWidth durumunda zaten 0 olurlar)
+  if (maxClampTranslateX > minClampTranslateX) {
+    maxClampTranslateX = minClampTranslateX;
+  }
+
+  // Hesaplanan translateX değerini sınırlar içinde tut
+  const clampedTranslateX = Math.max(
+    maxClampTranslateX,
+    Math.min(minClampTranslateX, proposedTranslateX)
+  );
+
+  gridRef.value.style.transform = `translateX(${clampedTranslateX}px)`;
 }
 
 function onDragEnd(event) {
