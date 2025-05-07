@@ -111,7 +111,7 @@ useHead({
               <RouterLink
                 :to="{ name: 'category', params: { slug: 'storlar' } }"
                 >stor perdeler</RouterLink
-              >'den, odanıza renk katacak desenli storlara kadar geniş bir
+              >den, odanıza renk katacak desenli storlara kadar geniş bir
               yelpaze sunuyoruz. Kullanım kolaylığı ve modern görünümü bir
               arada.
             </p>
