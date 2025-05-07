@@ -29,10 +29,10 @@ const getImageUrl = (name) => {
   ];
 
   export const pliseProducts = [
-    { id: 's1', name: 'Karartma (Blackout) Stor', description: 'Tamamen ışık geçirmez.', image: getImageUrl('Karartma Plise Perde.png') },
-    { id: 's2', name: 'Screen Stor Perde', description: 'Güneşi filtreler, dışarısı görünür.', image: getImageUrl('stor2.jpg') },
-    { id: 's3', name: 'Desenli Stor - Çocuk Odası', description: 'Eğlenceli desenler.', image: getImageUrl('stor3.jpg') },
-    { id: 's4', name: 'Stor Perde', description: 'Hem tül hem güneşlik.', image: getImageUrl('stor4.jpg') },
+    { id: 's1', name: 'Karartma Plise Perde', description: 'Tamamen ışık geçirmez.', image: getImageUrl('Karartma Plise Perde.png') },
+    { id: 's2', name: 'Tül Plise Perde', description: 'Güneşi filtreler, dışarısı görünür.', image: getImageUrl('Tül Plise Perde.png') },
+    { id: 's3', name: 'Desenli Plise-Çocuk Odası', description: 'Eğlenceli desenler.', image: getImageUrl('Desenli Plise-Çocuk Odası.png') },
+    { id: 's4', name: 'Düz Plise Perde', description: 'Hem tül hem güneşlik.', image: getImageUrl('Düz Plise Perde.png') },
     { id: 's5', name: 'Kişiye Özel Baskılı Stor', description: 'Kendi tasarımınızı yaratın.', image: getImageUrl('stor5.jpg') }
   ];
 
