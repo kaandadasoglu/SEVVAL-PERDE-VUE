@@ -10,22 +10,22 @@ const getImageUrl = (name) => {
   
   export const perdeProducts = [
     { id: 'p1', name: 'Modern Fon Perde - Keten Dokulu', description: 'Salon ve yatak odaları için ideal.', image: getImageUrl('Modern Fon Perde-Keten Dokulu.png') },
-    { id: 'p2', name: 'Zarif Tül Perde - Ekru', description: 'Işığı süzen, ferah bir atmosfer.', image: getImageUrl('Zarif Tül Perde-Ekru.png') },
+    { id: 'p2', name: 'Zarif Tül Perde - Ekru', description: 'Işığı süzen, ferah bir atmosfer.', image: getImageUrl('Zarif Tul Perde-Ekru.png') },
     { id: 'p3', name: 'Kadife Fon Perde - Bordo', description: 'Lüks ve sıcak bir dokunuş.', image: getImageUrl('Kadife Fon Perde.png') },
     { id: 'p4', name: 'Desenli Fon Perde - Geometrik', description: 'Odanıza modern bir hava katın.', image: getImageUrl('Desenli Fon Perde-Geometrik.png') },
     { id: 'p5', name: 'Rustik Keten Perde', description: 'Doğal ve samimi bir stil.', image: getImageUrl('Rustik Keten Perde.png') }
   ];
   
   export const jaluziProducts = [
-    { id: 'j1', name: 'Ahşap Jaluzi - Ceviz', description: 'Doğal ve sıcak bir görünüm.', image: getImageUrl('Ahşap Jaluzi-Ceviz.png') },
-    { id: 'j2', name: 'Alüminyum Jaluzi - Metalik Gri', description: 'Modern ofisler için pratik.', image: getImageUrl('Alüminyum Jaluzi-Metalik.png') },
+    { id: 'j1', name: 'Ahşap Jaluzi - Ceviz', description: 'Doğal ve sıcak bir görünüm.', image: getImageUrl('Ahsap Jaluzi-Ceviz.png') },
+    { id: 'j2', name: 'Alüminyum Jaluzi - Metalik Gri', description: 'Modern ofisler için pratik.', image: getImageUrl('Aluminyum Jaluzi-Metalik.png') },
     { id: 'j3', name: 'PVC Jaluzi - Beyaz', description: 'Neme dayanıklı, banyo/mutfak.', image: getImageUrl('PVC Jaluzi-Beyaz.png') }
   ];
   
   export const storProducts = [
     { id: 's1', name: 'Karartma (Blackout) Stor', description: 'Tamamen ışık geçirmez.', image: getImageUrl('Black-Out Stor.png') },
     { id: 's2', name: 'Screen Stor Perde', description: 'Güneşi filtreler, dışarısı görünür.', image: getImageUrl('Screen Stor.png') },
-    { id: 's4', name: 'Düz Stor Perde', description: 'Hem tül hem güneşlik.', image: getImageUrl('Düz Stor.png') }
+    { id: 's4', name: 'Düz Stor Perde', description: 'Hem tül hem güneşlik.', image: getImageUrl('Duz Stor.png') }
   ];
 
   export const pliseProducts = [
@@ -39,19 +39,19 @@ const getImageUrl = (name) => {
         id: 'pl2',
         name: 'Tül Plise Perde',
         description: 'Doğal ışığı süzer, gizliliği korur.', // Kısaltıldı
-        image: getImageUrl('Tül Plise Perde.png')
+        image: getImageUrl('Tul Plise Perde.png')
     },
     {
         id: 'pl3',
         name: 'Desenli Plise-Çocuk Odası',
         description: 'Çocuk odalarına neşe katan canlı desenler.', // Kısaltıldı
-        image: getImageUrl('Desenli Plise-Çocuk Odası.png')
+        image: getImageUrl('Desenli Plise-Cocuk Odasi.png')
     },
     {
         id: 'pl4',
         name: 'Düz Plise Perde',
         description: 'Sade, modern ve her dekora uyumlu.', // Kısaltıldı
-        image: getImageUrl('Düz Plise Perde.png')
+        image: getImageUrl('Duz Plise Perde.png')
     }
   ];
 
