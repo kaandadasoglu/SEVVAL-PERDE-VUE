@@ -6,11 +6,11 @@ import { useHead } from "@vueuse/head";
 
 // Kategori vurguları için statik resimleri import et
 // Gerçek dosya yollarınızın bunlarla eşleştiğinden emin olun (src/assets/images/ altında)
-import katPerdeImg from "@/assets/images/kat-perde.jpg";
-import katJaluziImg from "@/assets/images/kat-jaluzi.jpg";
-import katStorImg from "@/assets/images/kat-stor.jpg";
-import katPliseImg from "@/assets/images/kat-plise.jpg";
-import katKatlamalieImg from "@/assets/images/kat-katlamali.jpg";
+import katPerdeImg from "@/assets/images/kat-perde.png";
+import katJaluziImg from "@/assets/images/kat-jaluzi.png";
+import katStorImg from "@/assets/images/kat-stor.png";
+import katPliseImg from "@/assets/images/kat-plise.png";
+import katKatlamalieImg from "@/assets/images/kat-katlamali.png";
 
 // Sayfa başlığı ve açıklamasını tanımla
 useHead({
@@ -110,9 +110,10 @@ useHead({
               screen storlara, hem tül hem güneşlik işlevi gören
               <RouterLink
                 :to="{ name: 'category', params: { slug: 'storlar' } }"
-                >stor perdelerden</RouterLink
-              >, odanıza renk katacak desenli storlara kadar geniş bir yelpaze
-              sunuyoruz. Kullanım kolaylığı ve modern görünümü bir arada.
+                >stor perdeler</RouterLink
+              >'den, odanıza renk katacak desenli storlara kadar geniş bir
+              yelpaze sunuyoruz. Kullanım kolaylığı ve modern görünümü bir
+              arada.
             </p>
           </div>
 
