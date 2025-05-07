@@ -425,7 +425,7 @@ watch(totalPages, (newTotalPages) => {
     padding: 0 25px;
   }
   .carousel-item-override {
-    width: 220px; /* This width dictates itemsPerPage logic */
+    width: 100%; /* This width dictates itemsPerPage logic */
     /* margin-right: 0; */ /* Only if itemsPerPage is 1 and it fills container */
   }
   /* Adjust margin for single item view to center it if desired */
