@@ -1,55 +1,56 @@
 <script setup>
 import { ref, onMounted, onUnmounted, computed } from "vue"; // computed eklendi
+const Referans = "REFERANSLAR";
 
 // Slider verisi
 const slidesData = ref([
   {
     img: new URL("@/assets/images/slider2.png", import.meta.url).href,
-    caption: "Modern Jaluzi Çözümleri",
+    caption: Referans,
   },
   {
     img: new URL("@/assets/images/slider4.png", import.meta.url).href,
-    caption: "Fonksiyonel Stor Perdeler",
+    caption: Referans,
   },
   {
     img: new URL("@/assets/images/slider5.png", import.meta.url).href,
-    caption: "Fonksiyonel Stor Perdeler",
+    caption: Referans,
   },
   {
     img: new URL("@/assets/images/slider6.png", import.meta.url).href,
-    caption: "Fonksiyonel Stor Perdeler",
+    caption: Referans,
   },
   {
     img: new URL("@/assets/images/slider7.png", import.meta.url).href,
-    caption: "Fonksiyonel Stor Perdeler",
+    caption: Referans,
   },
   {
     img: new URL("@/assets/images/slider8.png", import.meta.url).href,
-    caption: "Fonksiyonel Stor Perdeler",
+    caption: Referans,
   },
   {
     img: new URL("@/assets/images/slider9.png", import.meta.url).href,
-    caption: "Fonksiyonel Stor Perdeler",
+    caption: Referans,
   },
   {
     img: new URL("@/assets/images/slider10.png", import.meta.url).href,
-    caption: "Fonksiyonel Stor Perdeler",
+    caption: Referans,
   },
   {
     img: new URL("@/assets/images/slider11.png", import.meta.url).href,
-    caption: "Fonksiyonel Stor Perdeler",
+    caption: Referans,
   },
   {
     img: new URL("@/assets/images/slider12.png", import.meta.url).href,
-    caption: "Fonksiyonel Stor Perdeler",
+    caption: Referans,
   },
   {
     img: new URL("@/assets/images/slider13.png", import.meta.url).href,
-    caption: "Fonksiyonel Stor Perdeler",
+    caption: Referans,
   },
   {
     img: new URL("@/assets/images/slider14.png", import.meta.url).href,
-    caption: "Fonksiyonel Stor Perdeler",
+    caption: Referans,
   },
 ]);
 
