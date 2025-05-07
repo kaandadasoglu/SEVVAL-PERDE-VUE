@@ -1,6 +1,6 @@
 <script setup>
 import { useHead } from "@vueuse/head";
-import closeupImage from "@/assets/images/closeup_plise_perde.jpg"; // İlgili resmi import et (dosya adını kontrol edin)
+import closeupImage from "@/assets/images/closeup_plise_perde.png"; // İlgili resmi import et (dosya adını kontrol edin)
 import { RouterLink } from "vue-router";
 
 useHead({

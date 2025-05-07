@@ -1,6 +1,6 @@
 <script setup>
 import { useHead } from "@vueuse/head";
-import closeupImage from "@/assets/images/closeup_ahsap_jaluzi.jpg"; // İlgili resmi import et
+import closeupImage from "@/assets/images/closeup_ahsap_jaluzi.png"; // İlgili resmi import et
 import { RouterLink } from "vue-router";
 
 useHead({
