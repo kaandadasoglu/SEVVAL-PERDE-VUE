@@ -39,28 +39,28 @@ const getImageUrl = (name) => {
         id: 'pl2',
         name: 'Tül Plise Perde',
         description: 'Doğal ışığı süzer, gizliliği korur.', // Kısaltıldı
-        image: getImageUrl('Tül Plise Perde.png')
+        image: getImageUrl('Tül Plise Perde.png')
     },
     {
         id: 'pl3',
         name: 'Desenli Plise-Çocuk Odası',
         description: 'Çocuk odalarına neşe katan canlı desenler.', // Kısaltıldı
-        image: getImageUrl('Desenli Plise-Çocuk Odası.png')
+        image: getImageUrl('Desenli Plise-Çocuk Odası.png')
     },
     {
         id: 'pl4',
         name: 'Düz Plise Perde',
         description: 'Sade, modern ve her dekora uyumlu.', // Kısaltıldı
-        image: getImageUrl('Düz Plise Perde.png')
+        image: getImageUrl('Düz Plise Perde.png')
     }
   ];
 
   export const katlamaliProducts = [
     { id: 'k1', name: 'Keten Katlamalı Perde - Naturel', description: 'Doğal keten dokusuyla şık ve modern.', image: getImageUrl('Keten Katlamali Perde-Naturel.png') },
-    { id: 'k2', name: 'Pamuklu Katlamalı Perde - Pastel Mavi', description: 'Yumuşak pamuklu kumaş, huzurlu bir ortam.', image: getImageUrl('Pamuklu Katlamali Perde-Pastel Mavi.png') },
-    { id: 'k3', name: 'Desenli Katlamalı Perde - Çiçekli', description: 'Canlı renkler ve zarif çiçek desenleri.', image: getImageUrl('Desenli Katlamali Perde-Cicekli.png') },
+    { id: 'k5', name: 'Tül Katlamalı Perde - Beyaz', description: 'Hafif ve uçuş uçuş, modern bir alternatif.', image: getImageUrl('Tul Katlamali Perde-Beyaz.png') },
     { id: 'k4', name: 'Karartma Katlamalı Perde - Gri', description: 'Işığı tamamen keser, mahremiyet sağlar.', image: getImageUrl('Karartma Katlamali Perde-Gri.png') },
-    { id: 'k5', name: 'Tül Katlamalı Perde - Beyaz', description: 'Hafif ve uçuş uçuş, modern bir alternatif.', image: getImageUrl('Tul Katlamali Perde-Beyaz.png') }
+    { id: 'k2', name: 'Pamuklu Katlamalı Perde - Pastel Mavi', description: 'Yumuşak pamuklu kumaş, huzurlu bir ortam.', image: getImageUrl('Pamuklu Katlamali Perde-Pastel Mavi.png') },
+    { id: 'k3', name: 'Desenli Katlamalı Perde - Çiçekli', description: 'Canlı renkler ve zarif çiçek desenleri.', image: getImageUrl('Desenli Katlamali Perde-Cicekli.png') }
   ];
   
  // YENİ: Tüm ürünleri tek bir dizide birleştirelim (arama için)
