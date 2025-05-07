@@ -16,7 +16,7 @@ useHead({
 
 // Hakkımızda sayfası için görsel (İsteğe bağlı, kendi görselinizle değiştirin)
 // Eğer bu görseli kullanmayacaksanız bu satırı ve template'deki ilgili kısmı silebilirsiniz.
-import aboutImage from "@/assets/images/hakkimizda-gorsel.jpg"; // Örnek görsel yolu
+import aboutImage from "@/assets/images/slider13.png"; // Örnek görsel yolu
 </script>
 
 <template>
@@ -260,7 +260,7 @@ h1 {
 @media (max-width: 991px) {
   /* Resim ve metnin alt alta geçtiği breakpoint */
   .about-image {
-    position: static; /* Sticky pozisyonunu mobilde kaldır */
+    /*position: static;  Sticky pozisyonunu mobilde kaldır */
     margin-top: 30px; /* Metinden sonra boşluk */
   }
 }
@@ -271,8 +271,12 @@ h1 {
     margin-bottom: 30px;
   }
   .about-content {
-    /* flex-direction: column-reverse; İsteğe bağlı, resim üste gelebilir */
-    flex-direction: column; /* Veya metin üstte kalsın */
+    flex-direction: column-reverse;
+    /*flex-direction: column;  Veya metin üstte kalsın */
+  }
+  .about-image {
+    position: static;
+    margin-top: 30px; /* Metinden sonra boşluk */
   }
   .about-text h2 {
     font-size: 1.6em;
