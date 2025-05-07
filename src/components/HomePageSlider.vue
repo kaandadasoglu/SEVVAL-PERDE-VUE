@@ -4,15 +4,51 @@ import { ref, onMounted, onUnmounted, computed } from "vue"; // computed eklendi
 // Slider verisi
 const slidesData = ref([
   {
-    img: new URL("@/assets/images/slider1.jpg", import.meta.url).href,
-    caption: "Kadıköy'de Perde Şıklığı",
-  },
-  {
-    img: new URL("@/assets/images/slider2.jpg", import.meta.url).href,
+    img: new URL("@/assets/images/slider2.png", import.meta.url).href,
     caption: "Modern Jaluzi Çözümleri",
   },
   {
-    img: new URL("@/assets/images/slider3.jpg", import.meta.url).href,
+    img: new URL("@/assets/images/slider4.png", import.meta.url).href,
+    caption: "Fonksiyonel Stor Perdeler",
+  },
+  {
+    img: new URL("@/assets/images/slider5.png", import.meta.url).href,
+    caption: "Fonksiyonel Stor Perdeler",
+  },
+  {
+    img: new URL("@/assets/images/slider6.png", import.meta.url).href,
+    caption: "Fonksiyonel Stor Perdeler",
+  },
+  {
+    img: new URL("@/assets/images/slider7.png", import.meta.url).href,
+    caption: "Fonksiyonel Stor Perdeler",
+  },
+  {
+    img: new URL("@/assets/images/slider8.png", import.meta.url).href,
+    caption: "Fonksiyonel Stor Perdeler",
+  },
+  {
+    img: new URL("@/assets/images/slider9.png", import.meta.url).href,
+    caption: "Fonksiyonel Stor Perdeler",
+  },
+  {
+    img: new URL("@/assets/images/slider10.png", import.meta.url).href,
+    caption: "Fonksiyonel Stor Perdeler",
+  },
+  {
+    img: new URL("@/assets/images/slider11.png", import.meta.url).href,
+    caption: "Fonksiyonel Stor Perdeler",
+  },
+  {
+    img: new URL("@/assets/images/slider12.png", import.meta.url).href,
+    caption: "Fonksiyonel Stor Perdeler",
+  },
+  {
+    img: new URL("@/assets/images/slider13.png", import.meta.url).href,
+    caption: "Fonksiyonel Stor Perdeler",
+  },
+  {
+    img: new URL("@/assets/images/slider14.png", import.meta.url).href,
     caption: "Fonksiyonel Stor Perdeler",
   },
 ]);
@@ -208,9 +244,10 @@ onUnmounted(() => {
 .slider {
   display: flex;
   position: relative;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4/3;
   width: 100%;
   min-height: 250px;
+  max-height: 700px;
 }
 
 .slide {

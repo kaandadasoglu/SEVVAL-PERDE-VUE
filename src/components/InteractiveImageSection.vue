@@ -33,7 +33,7 @@ const hotspots = ref([
       description:
         "Doğal ahşabın sıcaklığını ve zarafetini yaşam alanlarınıza taşıyın. Kadıköy ahşap jaluzi seçeneklerimizle mekanlarınıza özel bir dokunuş katın. Ayarlanabilir bantları sayesinde ışık kontrolü tamamen sizin elinizde!", // Popup açıklaması
       detailsLink: "/perde-cesitleri/ahsap-jaluzi", // Detay sayfasına link (varsa)
-      image: getImageUrl("closeup_ahsap_jaluzi.jpg"), // Popup içindeki yakın plan görsel
+      image: getImageUrl("closeup_ahsap_jaluzi.png"), // Popup içindeki yakın plan görsel
     },
   },
   {
@@ -44,7 +44,7 @@ const hotspots = ref([
       description:
         "İstanbul Kadıköy'deki perde mağazamızda birbirinden şık fon perde modelleri sizi bekliyor. Kaliteli kumaşları ve özenli dikimiyle uzun yıllar kullanabileceğiniz fon perdelerimizle evinizin atmosferini değiştirin.",
       detailsLink: "/perde-cesitleri/fon-perde",
-      image: getImageUrl("closeup_fon_perde.jpg"),
+      image: getImageUrl("closeup_fon_perde.png"),
     },
   },
   {
@@ -55,7 +55,7 @@ const hotspots = ref([
       description:
         "İstanbul Kadıköy'de aradığınız en güzel tül perde modelleri burada! Modern, klasik veya country tarzı dekorasyonunuza uyum sağlayacak birbirinden şık tüllerimizle evinizi aydınlatın.",
       detailsLink: "/perde-cesitleri/tul-perde",
-      image: getImageUrl("closeup_tul_perde.jpg"),
+      image: getImageUrl("closeup_tul_perde.png"),
     },
   },
   {
@@ -66,7 +66,7 @@ const hotspots = ref([
       description:
         "Kumaşın yukarı doğru zarif katmanlarla toplandığı dekoratif ve şık perde modeli.",
       detailsLink: "/perde-cesitleri/katlamali-perde",
-      image: getImageUrl("closeup_katlamali.jpg"),
+      image: getImageUrl("closeup_katlamali.png"),
     },
   },
   {
@@ -77,7 +77,7 @@ const hotspots = ref([
       description:
         "Pratik kullanımı ve modern görünümüyle stor perdeler, ev ve iş yerlerinize şıklık katıyor. Farklı renk, desen ve mekanizmalara sahip stor perdelerimizle güneş kontrolünü kolayca sağlayın.",
       detailsLink: "/perde-cesitleri/stor-perde",
-      image: getImageUrl("closeup_normal_stor.jpg"),
+      image: getImageUrl("closeup_normal_stor.png"),
     },
   },
   {
@@ -88,7 +88,7 @@ const hotspots = ref([
       description:
         "Özgün tasarımı ve kullanım kolaylığıyla plise perdeler, pencerelerinize farklı bir boyut kazandırıyor. Özellikle eğimli ve farklı şekilli pencereler için ideal olan plise perdelerimizle mekanlarınıza modern bir dokunuş katın",
       detailsLink: "/perde-cesitleri/plise-perde",
-      image: getImageUrl("closeup_plise_perde.jpg"),
+      image: getImageUrl("closeup_plise_perde.png"),
     },
   },
 ]);
