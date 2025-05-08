@@ -70,6 +70,12 @@ useHead(() => {
         content: `Şevval Perde Kadıköy ${pageTitle.value} kategorisindeki en yeni modelleri inceleyin. ${categoryProducts.value.length} ürün bulundu.`,
       },
     ],
+    link: [
+      {
+        rel: "canonical",
+        href: baseUrl + currentPath, // Bu sayfanın tam URL'si
+      },
+    ],
     script: [
       // YENİ: BreadcrumbList için script etiketi
       {

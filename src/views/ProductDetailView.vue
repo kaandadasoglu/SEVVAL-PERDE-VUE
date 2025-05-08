@@ -99,6 +99,12 @@ useHead(() => {
         }... Şevval Perde Kadıköy mağazasında inceleyin.`,
       },
     ],
+    link: [
+      {
+        rel: "canonical",
+        href: baseUrl + currentPath, // Bu sayfanın tam URL'si
+      },
+    ],
     script: [
       // YENİ: BreadcrumbList için script etiketi
       {

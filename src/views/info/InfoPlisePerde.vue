@@ -34,6 +34,12 @@ useHead(() => {
           "Kadıköy Şevval Perde'de plise perde modelleri. Cam balkon, çatı penceresi gibi dar ve eğimli alanlar için ideal, şık ve modern plise perde çözümleri.",
       },
     ],
+    link: [
+      {
+        rel: "canonical",
+        href: baseUrl + currentPath, // Bu sayfanın tam URL'si
+      },
+    ],
     script: [
       {
         type: "application/ld+json",

@@ -34,6 +34,12 @@ useHead(() => {
           "Dekoratif ve şık katlamalı perde (Roman Shade) modelleri Kadıköy Şevval Perde'de. Farklı kumaş ve mekanizma seçenekleri, ev ve iş yerleri için estetik çözümler.",
       },
     ],
+    link: [
+      {
+        rel: "canonical",
+        href: baseUrl + currentPath, // Bu sayfanın tam URL'si
+      },
+    ],
     script: [
       {
         type: "application/ld+json",

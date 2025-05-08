@@ -35,6 +35,12 @@ useHead(() => {
           "Kadıköy Şevval Perde'de doğal ahşap jaluzi modellerini keşfedin. Ev ve ofisler için sıcak, şık ve fonksiyonel ahşap jaluzi çözümleri ve avantajları.",
       },
     ],
+    link: [
+      {
+        rel: "canonical",
+        href: baseUrl + currentPath, // Bu sayfanın tam URL'si
+      },
+    ],
     script: [
       {
         type: "application/ld+json",

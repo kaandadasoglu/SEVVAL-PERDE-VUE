@@ -34,6 +34,12 @@ useHead(() => {
           "Kadıköy Şevval Perde'de salon, yatak odası için şık fon perde modelleri. Keten, kadife, pamuklu kumaş seçenekleri ve dekorasyon ipuçları.",
       },
     ],
+    link: [
+      {
+        rel: "canonical",
+        href: baseUrl + currentPath, // Bu sayfanın tam URL'si
+      },
+    ],
     script: [
       {
         type: "application/ld+json",

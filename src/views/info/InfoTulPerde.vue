@@ -34,6 +34,12 @@ useHead(() => {
           "Şık ve modern tül perde modelleri Şevval Perde'de. Işığı süzen, mahremiyet sağlayan, kaliteli ve çeşitli desenlerde tül perdeler Kadıköy mağazamızda.",
       },
     ],
+    link: [
+      {
+        rel: "canonical",
+        href: baseUrl + currentPath, // Bu sayfanın tam URL'si
+      },
+    ],
     script: [
       {
         type: "application/ld+json",

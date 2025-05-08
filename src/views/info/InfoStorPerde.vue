@@ -35,6 +35,12 @@ useHead(() => {
           "Şevval Perde Kadıköy'de karartma (blackout), screen (güneş kırıcı), desenli ve motorlu stor perde seçenekleri. Modern, pratik ve uygun fiyatlı storlar.",
       },
     ],
+    link: [
+      {
+        rel: "canonical",
+        href: baseUrl + currentPath, // Bu sayfanın tam URL'si
+      },
+    ],
     script: [
       {
         type: "application/ld+json",
