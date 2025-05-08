@@ -4,7 +4,7 @@ import closeupImage from "@/assets/images/closeup_katlamali.png";
 import { RouterLink, useRoute } from "vue-router"; // useRoute eklendi
 
 const route = useRoute();
-const pageTitleForBreadcrumb = "Katlamalı Perde";
+const pageTitleForBreadcrumb = "Katlamalı Perdeler";
 
 useHead(() => {
   const baseUrl = "https://www.sevvalperde.com";
