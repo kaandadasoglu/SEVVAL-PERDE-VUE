@@ -21,6 +21,11 @@ useHead({
       content:
         "İstanbul Kadıköy Şevval Perde: Evinize ve iş yerinize özel tül, fon, jaluzi, stor, zebra perde modelleri. Kaliteli ürünler, uzman danışmanlık ve montaj hizmeti.",
     },
+  link: [ // YENİ: Kanonik etiket eklendi
+    {
+      rel: 'canonical',
+      href: 'https://www.sevvalperde.com/' // Ana sayfanızın tam URL'si
+    },
   ],
 });
 </script>
