@@ -1,18 +1,51 @@
 <script setup>
 import { useHead } from "@vueuse/head";
-import closeupImage from "@/assets/images/closeup_normal_stor.png"; // İlgili resmi import et (dosya adını kontrol edin)
-import { RouterLink } from "vue-router";
+import closeupImage from "@/assets/images/closeup_normal_stor.png";
+import { RouterLink, useRoute } from "vue-router"; // useRoute eklendi
 
-useHead({
-  title:
-    "Stor Perdeler (Roller): Kullanım Alanları ve Çeşitleri | Şevval Perde",
-  meta: [
+const route = useRoute();
+const pageTitleForBreadcrumb = "Stor Perdeler";
+
+useHead(() => {
+  const baseUrl = "https://www.sevvalperde.com";
+  const currentPath = route.path;
+
+  const breadcrumbItems = [
     {
-      name: "description",
-      content:
-        "Şevval Perde Kadıköy'de karartma (blackout), screen (güneş kırıcı), desenli ve motorlu stor perde seçenekleri. Modern, pratik ve uygun fiyatlı storlar.",
+      "@type": "ListItem",
+      position: 1,
+      name: "Ana Sayfa",
+      item: baseUrl + "/",
     },
-  ],
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: pageTitleForBreadcrumb,
+      item: baseUrl + currentPath,
+    },
+  ];
+
+  return {
+    title:
+      "Stor Perdeler (Roller): Kullanım Alanları ve Çeşitleri | Şevval Perde",
+    meta: [
+      {
+        name: "description",
+        content:
+          "Şevval Perde Kadıköy'de karartma (blackout), screen (güneş kırıcı), desenli ve motorlu stor perde seçenekleri. Modern, pratik ve uygun fiyatlı storlar.",
+      },
+    ],
+    script: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: breadcrumbItems,
+        }),
+      },
+    ],
+  };
 });
 </script>
 

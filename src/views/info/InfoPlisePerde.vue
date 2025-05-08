@@ -1,17 +1,50 @@
 <script setup>
 import { useHead } from "@vueuse/head";
-import closeupImage from "@/assets/images/closeup_plise_perde.png"; // İlgili resmi import et (dosya adını kontrol edin)
-import { RouterLink } from "vue-router";
+import closeupImage from "@/assets/images/closeup_plise_perde.png";
+import { RouterLink, useRoute } from "vue-router"; // useRoute eklendi
 
-useHead({
-  title: "Plise Perdeler: Dar Alanlar İçin Esnek Çözüm | Şevval Perde",
-  meta: [
+const route = useRoute();
+const pageTitleForBreadcrumb = "Plise Perdeler";
+
+useHead(() => {
+  const baseUrl = "https://www.sevvalperde.com";
+  const currentPath = route.path;
+
+  const breadcrumbItems = [
     {
-      name: "description",
-      content:
-        "Kadıköy Şevval Perde'de plise perde modelleri. Cam balkon, çatı penceresi gibi dar ve eğimli alanlar için ideal, şık ve modern plise perde çözümleri.",
+      "@type": "ListItem",
+      position: 1,
+      name: "Ana Sayfa",
+      item: baseUrl + "/",
     },
-  ],
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: pageTitleForBreadcrumb,
+      item: baseUrl + currentPath,
+    },
+  ];
+
+  return {
+    title: "Plise Perdeler: Dar Alanlar İçin Esnek Çözüm | Şevval Perde",
+    meta: [
+      {
+        name: "description",
+        content:
+          "Kadıköy Şevval Perde'de plise perde modelleri. Cam balkon, çatı penceresi gibi dar ve eğimli alanlar için ideal, şık ve modern plise perde çözümleri.",
+      },
+    ],
+    script: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: breadcrumbItems,
+        }),
+      },
+    ],
+  };
 });
 </script>
 

@@ -1,17 +1,50 @@
 <script setup>
 import { useHead } from "@vueuse/head";
-import closeupImage from "@/assets/images/closeup_fon_perde.png"; // İlgili resmi import et
-import { RouterLink } from "vue-router";
+import closeupImage from "@/assets/images/closeup_fon_perde.png";
+import { RouterLink, useRoute } from "vue-router"; // useRoute eklendi
 
-useHead({
-  title: "Fon Perdeler: Modelleri ve Dekorasyondaki Yeri | Şevval Perde",
-  meta: [
+const route = useRoute();
+const pageTitleForBreadcrumb = "Fon Perdeler";
+
+useHead(() => {
+  const baseUrl = "https://www.sevvalperde.com";
+  const currentPath = route.path;
+
+  const breadcrumbItems = [
     {
-      name: "description",
-      content:
-        "Kadıköy Şevval Perde'de salon, yatak odası için şık fon perde modelleri. Keten, kadife, pamuklu kumaş seçenekleri ve dekorasyon ipuçları.",
+      "@type": "ListItem",
+      position: 1,
+      name: "Ana Sayfa",
+      item: baseUrl + "/",
     },
-  ],
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: pageTitleForBreadcrumb,
+      item: baseUrl + currentPath,
+    },
+  ];
+
+  return {
+    title: "Fon Perdeler: Modelleri ve Dekorasyondaki Yeri | Şevval Perde",
+    meta: [
+      {
+        name: "description",
+        content:
+          "Kadıköy Şevval Perde'de salon, yatak odası için şık fon perde modelleri. Keten, kadife, pamuklu kumaş seçenekleri ve dekorasyon ipuçları.",
+      },
+    ],
+    script: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: breadcrumbItems,
+        }),
+      },
+    ],
+  };
 });
 </script>
 

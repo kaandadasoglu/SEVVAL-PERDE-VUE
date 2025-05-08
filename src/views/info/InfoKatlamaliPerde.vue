@@ -1,17 +1,50 @@
 <script setup>
 import { useHead } from "@vueuse/head";
-import closeupImage from "@/assets/images/closeup_katlamali.png"; // İlgili resmi import et (dosya adını kontrol edin)
-import { RouterLink } from "vue-router";
+import closeupImage from "@/assets/images/closeup_katlamali.png";
+import { RouterLink, useRoute } from "vue-router"; // useRoute eklendi
 
-useHead({
-  title: "Katlamalı Perdeler (Roman Shade) | Şevval Perde Kadıköy",
-  meta: [
+const route = useRoute();
+const pageTitleForBreadcrumb = "Katlamalı Perdeler";
+
+useHead(() => {
+  const baseUrl = "https://www.sevvalperde.com";
+  const currentPath = route.path;
+
+  const breadcrumbItems = [
     {
-      name: "description",
-      content:
-        "Dekoratif ve şık katlamalı perde (Roman Shade) modelleri Kadıköy Şevval Perde'de. Farklı kumaş ve mekanizma seçenekleri, ev ve iş yerleri için estetik çözümler.",
+      "@type": "ListItem",
+      position: 1,
+      name: "Ana Sayfa",
+      item: baseUrl + "/",
     },
-  ],
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: pageTitleForBreadcrumb,
+      item: baseUrl + currentPath,
+    },
+  ];
+
+  return {
+    title: "Katlamalı Perdeler (Roman Shade) | Şevval Perde Kadıköy",
+    meta: [
+      {
+        name: "description",
+        content:
+          "Dekoratif ve şık katlamalı perde (Roman Shade) modelleri Kadıköy Şevval Perde'de. Farklı kumaş ve mekanizma seçenekleri, ev ve iş yerleri için estetik çözümler.",
+      },
+    ],
+    script: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: breadcrumbItems,
+        }),
+      },
+    ],
+  };
 });
 </script>
 

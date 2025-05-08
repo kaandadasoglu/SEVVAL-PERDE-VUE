@@ -1,22 +1,22 @@
 <script setup>
 import { computed } from "vue";
-import ProductCard from "@/components/ProductCard.vue"; // ProductCard bileşenini import et
+import ProductCard from "@/components/ProductCard.vue";
 import {
   perdeProducts,
   jaluziProducts,
   storProducts,
   pliseProducts,
   katlamaliProducts,
-} from "@/data/products.js"; // Veriyi import et
-import { useHead } from "@vueuse/head"; // Meta etiketler için
-import { RouterLink } from "vue-router"; // RouterLink import
+} from "@/data/products.js";
+import { useHead } from "@vueuse/head";
+import { RouterLink, useRoute } from "vue-router"; // useRoute import edin
 
-// Route'dan gelen 'slug' parametresini prop olarak al
 const props = defineProps({
   slug: String,
 });
 
-// Slug'a göre sayfa başlığını belirle
+const route = useRoute(); // Mevcut route bilgilerini almak için
+
 const pageTitle = computed(() => {
   if (!props.slug) return "Kategori";
   const titles = {
@@ -32,28 +32,56 @@ const pageTitle = computed(() => {
   );
 });
 
-// Slug'a göre gösterilecek ürünleri belirle
 const categoryProducts = computed(() => {
   if (props.slug === "perdeler") return perdeProducts;
   if (props.slug === "jaluziler") return jaluziProducts;
   if (props.slug === "storlar") return storProducts;
   if (props.slug === "pliseler") return pliseProducts;
   if (props.slug === "katlamali") return katlamaliProducts;
-  return []; // Eşleşen kategori yoksa boş dizi
+  return [];
 });
 
-// Dinamik başlık ve açıklama için useHead kullanımı
-useHead({
-  title: computed(() => `${pageTitle.value} Modelleri | Şevval Perde Kadıköy`),
-  meta: [
+// Dinamik başlık, açıklama ve YENİ: BreadcrumbList için useHead kullanımı
+useHead(() => {
+  // useHead'i bir fonksiyon haline getirin ki route.path reaktif olsun
+  const baseUrl = "https://www.sevvalperde.com";
+  const currentPath = route.path; // Mevcut sayfanın tam yolu
+
+  const breadcrumbItems = [
     {
-      name: "description",
-      content: computed(
-        () =>
-          `Şevval Perde Kadıköy ${pageTitle.value} kategorisindeki en yeni modelleri inceleyin. ${categoryProducts.value.length} ürün bulundu.`
-      ),
+      "@type": "ListItem",
+      position: 1,
+      name: "Ana Sayfa",
+      item: baseUrl + "/",
     },
-  ],
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: pageTitle.value, // Dinamik kategori adı
+      item: baseUrl + currentPath, // Mevcut kategori sayfasının URL'i
+    },
+  ];
+
+  return {
+    title: `${pageTitle.value} Modelleri | Şevval Perde Kadıköy`,
+    meta: [
+      {
+        name: "description",
+        content: `Şevval Perde Kadıköy ${pageTitle.value} kategorisindeki en yeni modelleri inceleyin. ${categoryProducts.value.length} ürün bulundu.`,
+      },
+    ],
+    script: [
+      // YENİ: BreadcrumbList için script etiketi
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: breadcrumbItems,
+        }),
+      },
+    ],
+  };
 });
 </script>
 

@@ -1,36 +1,116 @@
 <script setup>
 import { computed } from "vue";
-import { RouterLink } from "vue-router";
+import { RouterLink, useRoute } from "vue-router"; // useRoute import edin
 import { useHead } from "@vueuse/head";
-import { getProductById } from "@/data/products.js";
+import {
+  getProductById,
+  // Ürün kategorilerini de import edelim (veya product.js'den gelen yapıyı kullanalım)
+  perdeProducts,
+  jaluziProducts,
+  storProducts,
+  pliseProducts,
+  katlamaliProducts,
+} from "@/data/products.js";
 
 const props = defineProps({
   id: String,
 });
 
+const route = useRoute(); // Mevcut route bilgilerini almak için
+
 const product = computed(() => {
   return getProductById(props.id);
 });
 
-// Meta etiketleri (title ve description aynı kalabilir veya güncellenebilir)
-useHead({
-  title: computed(() =>
-    product.value
-      ? `${product.value.name} - Şevval Perde`
-      : "Ürün Detayı - Şevval Perde"
-  ),
-  meta: [
+// Ürünün kategorisini bulmak için yardımcı yapı ve fonksiyon
+const categoryLookups = [
+  { slug: "perdeler", name: "Perdeler", products: perdeProducts },
+  { slug: "jaluziler", name: "Jaluziler", products: jaluziProducts },
+  { slug: "storlar", name: "Stor Perdeler", products: storProducts },
+  { slug: "pliseler", name: "Plise Perdeler", products: pliseProducts },
+  {
+    slug: "katlamali",
+    name: "Katlamalı Perdeler",
+    products: katlamaliProducts,
+  },
+];
+
+const productCategory = computed(() => {
+  if (!product.value) return null;
+  for (const category of categoryLookups) {
+    if (category.products.some((p) => p.id === product.value.id)) {
+      return { name: category.name, slug: category.slug };
+    }
+  }
+  return null;
+});
+
+// Dinamik başlık, açıklama ve YENİ: BreadcrumbList için useHead kullanımı
+useHead(() => {
+  // useHead'i bir fonksiyon haline getirin
+  if (!product.value) {
+    // Ürün bulunamazsa temel meta etiketleri
+    return {
+      title: "Ürün Detayı - Şevval Perde",
+      meta: [
+        {
+          name: "description",
+          content: "Şevval Perde ürün detay sayfası.",
+        },
+      ],
+    };
+  }
+
+  const baseUrl = "https://www.sevvalperde.com";
+  const currentPath = route.path; // Mevcut ürün sayfasının tam yolu
+
+  const breadcrumbItems = [
     {
-      name: "description",
-      content: computed(() =>
-        product.value
-          ? `${product.value.name}: ${
-              product.value.description?.substring(0, 150) ?? ""
-            }... Şevval Perde Kadıköy mağazasında inceleyin.` // description yoksa diye kontrol eklendi
-          : "Şevval Perde ürün detay sayfası."
-      ),
+      "@type": "ListItem",
+      position: 1,
+      name: "Ana Sayfa",
+      item: baseUrl + "/",
     },
-  ],
+  ];
+
+  if (productCategory.value) {
+    breadcrumbItems.push({
+      "@type": "ListItem",
+      position: 2,
+      name: productCategory.value.name, // Dinamik kategori adı
+      item: baseUrl + "/kategori/" + productCategory.value.slug, // Kategori sayfasının URL'i
+    });
+  }
+
+  breadcrumbItems.push({
+    "@type": "ListItem",
+    position: productCategory.value ? 3 : 2, // Kategori varsa 3., yoksa 2. pozisyon
+    name: product.value.name, // Dinamik ürün adı
+    item: baseUrl + currentPath, // Mevcut ürün sayfasının URL'i
+  });
+
+  return {
+    title: `${product.value.name} - Şevval Perde`,
+    meta: [
+      {
+        name: "description",
+        content: `${product.value.name}: ${
+          product.value.description?.substring(0, 150) ?? ""
+        }... Şevval Perde Kadıköy mağazasında inceleyin.`,
+      },
+    ],
+    script: [
+      // YENİ: BreadcrumbList için script etiketi
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: breadcrumbItems,
+        }),
+      },
+    ],
+  };
 });
 </script>
 

@@ -1,17 +1,50 @@
 <script setup>
 import { useHead } from "@vueuse/head";
-import closeupImage from "@/assets/images/closeup_tul_perde.png"; // İlgili resmi import et
-import { RouterLink } from "vue-router";
+import closeupImage from "@/assets/images/closeup_tul_perde.png";
+import { RouterLink, useRoute } from "vue-router"; // useRoute eklendi
 
-useHead({
-  title: "Tül Perdeler: Ferahlık ve Zarafet | Şevval Perde Kadıköy",
-  meta: [
+const route = useRoute();
+const pageTitleForBreadcrumb = "Tül Perdeler";
+
+useHead(() => {
+  const baseUrl = "https://www.sevvalperde.com";
+  const currentPath = route.path;
+
+  const breadcrumbItems = [
     {
-      name: "description",
-      content:
-        "Şık ve modern tül perde modelleri Şevval Perde'de. Işığı süzen, mahremiyet sağlayan, kaliteli ve çeşitli desenlerde tül perdeler Kadıköy mağazamızda.",
+      "@type": "ListItem",
+      position: 1,
+      name: "Ana Sayfa",
+      item: baseUrl + "/",
     },
-  ],
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: pageTitleForBreadcrumb,
+      item: baseUrl + currentPath,
+    },
+  ];
+
+  return {
+    title: "Tül Perdeler: Ferahlık ve Zarafet | Şevval Perde Kadıköy",
+    meta: [
+      {
+        name: "description",
+        content:
+          "Şık ve modern tül perde modelleri Şevval Perde'de. Işığı süzen, mahremiyet sağlayan, kaliteli ve çeşitli desenlerde tül perdeler Kadıköy mağazamızda.",
+      },
+    ],
+    script: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: breadcrumbItems,
+        }),
+      },
+    ],
+  };
 });
 </script>
 

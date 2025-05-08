@@ -1,19 +1,51 @@
 <script setup>
 import { useHead } from "@vueuse/head";
-import closeupImage from "@/assets/images/closeup_ahsap_jaluzi.png"; // İlgili resmi import et
-import { RouterLink } from "vue-router";
+import closeupImage from "@/assets/images/closeup_ahsap_jaluzi.png";
+import { RouterLink, useRoute } from "vue-router"; // useRoute eklendi
 
-useHead({
-  // Bu sayfaya özel Başlık
-  title: "Ahşap Jaluzi Perdeler: Doğallık ve Şıklık | Şevval Perde Kadıköy",
-  meta: [
+const route = useRoute(); // Mevcut route bilgilerini almak için
+const pageTitleForBreadcrumb = "Ahşap Jaluzi Perdeler"; // Breadcrumb için sayfa adı
+
+useHead(() => {
+  // useHead bir arrow function oldu
+  const baseUrl = "https://www.sevvalperde.com";
+  const currentPath = route.path;
+
+  const breadcrumbItems = [
     {
-      // Bu sayfaya özel Açıklama
-      name: "description",
-      content:
-        "Kadıköy Şevval Perde'de doğal ahşap jaluzi modellerini keşfedin. Ev ve ofisler için sıcak, şık ve fonksiyonel ahşap jaluzi çözümleri ve avantajları.",
+      "@type": "ListItem",
+      position: 1,
+      name: "Ana Sayfa",
+      item: baseUrl + "/",
     },
-  ],
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: pageTitleForBreadcrumb, // Bu sayfanın adı
+      item: baseUrl + currentPath,
+    },
+  ];
+
+  return {
+    title: "Ahşap Jaluzi Perdeler: Doğallık ve Şıklık | Şevval Perde Kadıköy",
+    meta: [
+      {
+        name: "description",
+        content:
+          "Kadıköy Şevval Perde'de doğal ahşap jaluzi modellerini keşfedin. Ev ve ofisler için sıcak, şık ve fonksiyonel ahşap jaluzi çözümleri ve avantajları.",
+      },
+    ],
+    script: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: breadcrumbItems,
+        }),
+      },
+    ],
+  };
 });
 </script>
 
