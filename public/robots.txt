@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /private/ # Eğer taranmasını istemediğiniz özel klasörler varsa
+
+Sitemap: https://www.sevvalperde.com/sitemap.xml
