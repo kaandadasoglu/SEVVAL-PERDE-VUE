@@ -1,22 +1,103 @@
 <script setup>
-// YENİ: useHead import et
 import { useHead } from "@vueuse/head";
+import { useRoute } from "vue-router"; // Vue Router'dan useRoute'u import ediyoruz
 
-// YENİ: Sayfa başlığı ve açıklamasını tanımla
-useHead({
-  title: "İletişim - Şevval Perde | Kadıköy Mağaza ve Telefon",
-  meta: [
+const route = useRoute(); // Mevcut route bilgilerini almak için
+const pageTitleForBreadcrumb = "İletişim"; // Breadcrumb'da görünecek sayfa adı
+
+// Instagram bilgileri (şablonunuzda kullanılıyor)
+const instagramUrl = "https://www.instagram.com/sevvalperde/";
+const instagramUsername = "@sevvalperde";
+
+// useHead'i reaktif hale getirmek için bir fonksiyon olarak tanımlıyoruz
+useHead(() => {
+  const baseUrl = "https://www.sevvalperde.com"; // Sitenizin ana URL'si
+  const currentPath = route.path; // Mevcut sayfanın yolu (örn: /iletisim)
+  const currentUrl = baseUrl + currentPath; // Mevcut sayfanın tam URL'si
+
+  // BreadcrumbList için öğeler
+  const breadcrumbItems = [
     {
-      name: "description",
-      content:
-        "Şevval Perde ile iletişime geçin. Adres: Fahrettin Kerim Gökay Cd No:223, Kadıköy/İstanbul. Telefon: +90 533 335 76 36. Instagram ve e-posta bilgileri.", // Açıklamaya Instagram eklendi
+      "@type": "ListItem",
+      position: 1,
+      name: "Ana Sayfa",
+      item: baseUrl + "/", // Ana sayfa URL'si
     },
-  ],
-});
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: pageTitleForBreadcrumb, // Bu sayfanın adı
+      item: currentUrl, // Bu sayfanın URL'si
+    },
+  ];
 
-// Instagram profil URL'si (Gerçek URL ile değiştirin)
-const instagramUrl = "https://www.instagram.com/sevvalperde/"; // Örnek URL
-const instagramUsername = "@sevvalperde"; // Gösterilecek kullanıcı adı
+  // LocalBusiness (Yerel İşletme) Şeması
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "CurtainStore", // İşletme türünüz (Perde Mağazası)
+    name: "Şevval Perde",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Merdivenköy, Fahrettin Kerim Gökay Cd No:223",
+      addressLocality: "Kadıköy",
+      addressRegion: "İstanbul",
+      postalCode: "34730",
+      addressCountry: "TR",
+    },
+    telephone: "+905333357636",
+    url: baseUrl, // İşletmenizin ana web sitesi URL'si
+    // ÖNEMLİ: Aşağıdaki 'image' URL'sinin doğru olduğundan ve logonuzun bu adreste erişilebilir olduğundan emin olun.
+    // Öneri: Logonuzu (örn: sevval_perde_logo.png) projenizin `public` klasörüne `logo-sevval-perde.png` gibi bir isimle kopyalayın.
+    image: baseUrl + "/logo-sevval-perde.png", // Logonuzun tam URL'si (örn: https://www.sevvalperde.com/logo-sevval-perde.png)
+    openingHours: "Mo-Sa 09:00-19:00", // Çalışma saatleri (Schema.org formatında)
+    identifier: baseUrl + "/", // İşletmeyi benzersiz şekilde tanımlayan URL (genellikle ana sayfa)
+    sameAs: [
+      // Sosyal medya ve diğer platformlardaki profilleriniz
+      instagramUrl,
+      // Varsa diğer sosyal medya linklerinizi buraya ekleyebilirsiniz (örn: Facebook sayfanız)
+    ],
+    // İsteğe bağlı: Coğrafi koordinatlar
+    // "geo": {
+    //   "@type": "GeoCoordinates",
+    //   "latitude": "ENLEM_DEĞERİNİ_BURAYA_YAZIN",
+    //   "longitude": "BOYLAM_DEĞERİNİ_BURAYA_YAZIN"
+    // }
+  };
+
+  return {
+    title: "İletişim - Şevval Perde | Kadıköy Mağaza ve Telefon",
+    meta: [
+      {
+        name: "description",
+        content:
+          "Şevval Perde ile iletişime geçin. Adres: Fahrettin Kerim Gökay Cd No:223, Kadıköy/İstanbul. Telefon: +90 533 335 76 36. Instagram ve e-posta bilgileri.",
+      },
+    ],
+    link: [
+      // Kanonik URL etiketi
+      {
+        rel: "canonical",
+        href: currentUrl, // Bu sayfanın tam ve asıl URL'si
+      },
+    ],
+    script: [
+      // Yapılandırılmış veri scriptleri
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          // BreadcrumbList Şeması
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: breadcrumbItems,
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(localBusinessSchema), // LocalBusiness Şeması
+      },
+    ],
+  };
+});
 </script>
 
 <template>
