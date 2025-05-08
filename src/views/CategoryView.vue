@@ -20,11 +20,11 @@ const route = useRoute(); // Mevcut route bilgilerini almak için
 const pageTitle = computed(() => {
   if (!props.slug) return "Kategori";
   const titles = {
-    perdeler: "Perdeler",
-    jaluziler: "Jaluziler",
-    storlar: "Stor Perdeler",
-    pliseler: "Plise Perdeler",
-    katlamali: "Katlamalı Perdeler",
+    perdeler: "Perde",
+    jaluziler: "Jaluzi",
+    storlar: "Stor Perde",
+    pliseler: "Plise Perde",
+    katlamali: "Katlamalı Perde",
   };
   return (
     titles[props.slug] ||
