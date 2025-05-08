@@ -202,7 +202,7 @@ onUnmounted(() => {
     class="slider-container"
     ref="sliderContainerRef"
     @mousedown.prevent="handleDragStart"
-    @touchstart.prevent="handleDragStart"
+    @touchstart="handleDragStart"
     @mousemove="handleDragMove"
     @touchmove="handleDragMove"
     @mouseup="handleDragEnd"
@@ -236,6 +236,7 @@ onUnmounted(() => {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  touch-action: pan-y;
 }
 
 .slider-container.dragging {
