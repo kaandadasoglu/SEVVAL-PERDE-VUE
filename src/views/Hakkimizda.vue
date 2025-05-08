@@ -4,12 +4,12 @@ import { RouterLink } from "vue-router"; // İsteğe bağlı olarak link eklemek
 
 // Sayfa başlığı ve meta açıklaması (yeni metne göre güncellendi)
 useHead({
-  title: "Hakkımızda - Şevval Perde | 1999'dan Beri Kadıköy'de Kalite",
+  title: "Hakkımızda - Şevval Perde | 1998'dan Beri Kadıköy'de Kalite",
   meta: [
     {
       name: "description",
       content:
-        "Şevval Perde'nin 1999'da Kadıköy Göztepe'de başlayan hikayesini, kalite anlayışını, geniş ürün yelpazesini ve müşteri odaklı yaklaşımını keşfedin.",
+        "Şevval Perde'nin 1998'da Kadıköy Göztepe'de başlayan hikayesini, kalite anlayışını, geniş ürün yelpazesini ve müşteri odaklı yaklaşımını keşfedin.",
     },
   ],
 });
@@ -27,7 +27,7 @@ import aboutImage from "@/assets/images/slider13.png"; // Örnek görsel yolu
       <div class="about-text">
         <h2>Şevval Perde: Kadıköy'ün Perde Uzmanı</h2>
         <p>
-          Şevval Perde'nin hikayesi, 1999 yılında İstanbul'un kalbi Kadıköy
+          Şevval Perde'nin hikayesi, 1998 yılında İstanbul'un kalbi Kadıköy
           Göztepe'de başladı. Kuruluşumuzun temelinde yatan vizyon, her zaman
           üstün kaliteyi erişilebilir fiyatlarla buluşturarak, yaşam alanlarına
           değer katmak oldu. Bu ilke, geçen yıllar boyunca rehberimiz olmaya
