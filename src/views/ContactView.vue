@@ -244,7 +244,7 @@ h1 {
 
 .contact-info h2 {
   color: #a0522d;
-  margin-bottom: 40px;
+  margin-bottom: 25px;
   padding-bottom: 10px;
   border-bottom: 1px solid #eee;
   font-size: 1.6em;
@@ -254,14 +254,14 @@ h1 {
 .maps-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
+  gap: 40px;
 }
 
 .branch-card {
   background: #fff;
   border: 1px solid #eee;
   border-radius: 8px;
-  padding: 24px;
+  padding: 40px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
 }
 
