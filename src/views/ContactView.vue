@@ -32,8 +32,8 @@ const branches = [
       "Sahrayı Cedit, İnönü Cd. NO:2 / 1, 34734 Kadıköy/İstanbul",
     streetAddress: "Sahrayı Cedit, İnönü Cd. NO:2 / 1",
     postalCode: "34734",
-    phone: "+90 544 799 44 85",
-    phoneHref: "tel:+905447994485",
+    phone: "+90 533 335 76 36",
+    phoneHref: "tel:+905333357636",
     email: "sevvalperde@hotmail.com",
     emailHref: "mailto:sevvalperde@hotmail.com",
     workingHours: "Hafta içi & Cumartesi 09:00 - 19:00",
@@ -193,7 +193,7 @@ useHead(() => {
           :key="`${branch.name}-map`"
           class="map-container"
         >
-          <h2>{{ branch.name Konumu}} </h2>
+          <h2>{{ branch.name }} </h2>
 
           <iframe
             :src="branch.embedUrl"
@@ -203,7 +203,7 @@ useHead(() => {
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            :title="`${branch.name}     `"
+            :title="`${branch.name} `"
           ></iframe>
         </div>
       </div>
@@ -254,14 +254,14 @@ h1 {
 .maps-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 40px;
+  gap: 24px;
 }
 
 .branch-card {
   background: #fff;
   border: 1px solid #eee;
   border-radius: 8px;
-  padding: 40px;
+  padding: 24px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
 }
 
