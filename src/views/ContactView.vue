@@ -187,13 +187,13 @@ useHead(() => {
         </div>
       </div>
 
-      <div class="maps-grid">
+            <div class="maps-grid">
         <div
           v-for="branch in branches"
           :key="`${branch.name}-map`"
           class="map-container"
         >
-          <h2>{{ branch.name }} </h2>
+          <h2>{{ branch.name }}</h2>
 
           <iframe
             :src="branch.embedUrl"
@@ -203,7 +203,7 @@ useHead(() => {
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            :title="`${branch.name} `"
+            :title="branch.name"
           ></iframe>
         </div>
       </div>
