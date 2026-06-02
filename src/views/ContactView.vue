@@ -193,7 +193,7 @@ useHead(() => {
           :key="`${branch.name}-map`"
           class="map-container"
         >
-          <h2>{{ branch.name    }} </h2>
+          <h2>{{ branch.name Konumu}} </h2>
 
           <iframe
             :src="branch.embedUrl"
@@ -247,7 +247,7 @@ h1 {
   margin-bottom: 25px;
   padding-bottom: 10px;
   border-bottom: 1px solid #eee;
-  font-size: 1.6em;
+  font-size: 1.8em;
 }
 
 .branches-grid,
