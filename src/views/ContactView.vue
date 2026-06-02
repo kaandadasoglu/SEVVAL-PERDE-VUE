@@ -38,7 +38,6 @@ const branches = [
     emailHref: "mailto:sevvalperde@hotmail.com",
     workingHours: "Hafta içi & Cumartesi 09:00 - 19:00",
     mapUrl: "https://www.google.com/maps/place/%C5%9Eevval+Perde+Sahray%C4%B1+Cedit/@40.9800418,29.0762357,17.75z/data=!4m14!1m7!3m6!1s0x14cac7007e977f43:0xee19df922ecaf2d4!2s%C5%9Eevval+Perde+Sahray%C4%B1+Cedit!8m2!3d40.9799315!4d29.0778373!16s%2Fg%2F11z4z8cjy9!3m5!1s0x14cac7007e977f43:0xee19df922ecaf2d4!8m2!3d40.9799315!4d29.0778373!16s%2Fg%2F11z4z8cjy9?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D",
-    "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3012.0657169042524!2d29.0762357!3d40.9800418!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac7007e977f43%3A0xee19df922ecaf2d4!2s%C5%9Eevval%20Perde%20Sahray%C4%B1%20Cedit!5e0!3m2!1sen!2str!4v1780409111039!5m2!1sen!2str"
     embedUrl:
       "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3012.0657169042524!2d29.0762357!3d40.9800418!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac7007e977f43%3A0xee19df922ecaf2d4!2s%C5%9Eevval%20Perde%20Sahray%C4%B1%20Cedit!5e0!3m2!1sen!2str!4v1780409111039!5m2!1sen!2str"
   },
