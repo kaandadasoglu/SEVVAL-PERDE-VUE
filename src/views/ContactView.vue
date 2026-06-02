@@ -9,6 +9,39 @@ const pageTitleForBreadcrumb = "İletişim"; // Breadcrumb'da görünecek sayfa 
 const instagramUrl = "https://www.instagram.com/sevvalperde/";
 const instagramUsername = "@sevvalperde";
 
+  const branches = [
+  {
+    name: "Şevval Perde - Göztepe / Merdivenköy",
+    addressText:
+      "Merdivenköy, Fahrettin Kerim Gökay Cd No:223, 34730 Kadıköy/İstanbul",
+    streetAddress: "Merdivenköy, Fahrettin Kerim Gökay Cd No:223",
+    postalCode: "34730",
+    phone: "+90 533 335 76 36",
+    phoneHref: "tel:+905333357636",
+    email: "sevvalperde@hotmail.com",
+    emailHref: "mailto:sevvalperde@hotmail.com",
+    workingHours: "Hafta içi & Cumartesi 09:00 - 19:00",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Merdivenk%C3%B6y%2C%20Fahrettin%20Kerim%20G%C3%B6kay%20Cd%20No%3A223%2C%2034730%20Kad%C4%B1k%C3%B6y/%C4%B0stanbul",
+    embedUrl:
+      "https://www.google.com/maps?q=Merdivenk%C3%B6y%2C%20Fahrettin%20Kerim%20G%C3%B6kay%20Cd%20No%3A223%2C%2034730%20Kad%C4%B1k%C3%B6y/%C4%B0stanbul&output=embed",
+  },
+  {
+    name: "Şevval Perde - Sahrayı Cedit",
+    addressText:
+      "Sahrayı Cedit, İnönü Cd. NO:2 / 1, 34734 Kadıköy/İstanbul",
+    streetAddress: "Sahrayı Cedit, İnönü Cd. NO:2 / 1",
+    postalCode: "34734",
+    phone: "+90 533 335 76 36",
+    phoneHref: "tel:+905333357636",
+    email: "sevvalperde@hotmail.com",
+    emailHref: "mailto:sevvalperde@hotmail.com",
+    workingHours: "Hafta içi & Cumartesi 09:00 - 19:00",
+    mapUrl: "https://maps.app.goo.gl/4GFwLbUE51U2E9ER9",
+    embedUrl:
+      "https://www.google.com/maps?q=Sahray%C4%B1%20Cedit%2C%20%C4%B0n%C3%B6n%C3%BC%20Cd.%20NO%3A2%20/%201%2C%2034734%20Kad%C4%B1k%C3%B6y/%C4%B0stanbul&output=embed",
+  },
+];
 // useHead'i reaktif hale getirmek için bir fonksiyon olarak tanımlıyoruz
 useHead(() => {
   const baseUrl = "https://www.sevvalperde.com"; // Sitenizin ana URL'si
@@ -32,45 +65,33 @@ useHead(() => {
   ];
 
   // LocalBusiness (Yerel İşletme) Şeması
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "CurtainStore", // İşletme türünüz (Perde Mağazası)
-    name: "Şevval Perde",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Merdivenköy, Fahrettin Kerim Gökay Cd No:223",
-      addressLocality: "Kadıköy",
-      addressRegion: "İstanbul",
-      postalCode: "34730",
-      addressCountry: "TR",
-    },
-    telephone: "+905333357636",
-    url: baseUrl, // İşletmenizin ana web sitesi URL'si
-    // ÖNEMLİ: Aşağıdaki 'image' URL'sinin doğru olduğundan ve logonuzun bu adreste erişilebilir olduğundan emin olun.
-    // Öneri: Logonuzu (örn: sevval_perde_logo.png) projenizin `public` klasörüne `logo-sevval-perde.png` gibi bir isimle kopyalayın.
-    image: baseUrl + "/logo-sevval-perde.png", // Logonuzun tam URL'si (örn: https://www.sevvalperde.com/logo-sevval-perde.png)
-    openingHours: "Mo-Sa 09:00-19:00", // Çalışma saatleri (Schema.org formatında)
-    identifier: baseUrl + "/", // İşletmeyi benzersiz şekilde tanımlayan URL (genellikle ana sayfa)
-    sameAs: [
-      // Sosyal medya ve diğer platformlardaki profilleriniz
-      instagramUrl,
-      // Varsa diğer sosyal medya linklerinizi buraya ekleyebilirsiniz (örn: Facebook sayfanız)
-    ],
-    // İsteğe bağlı: Coğrafi koordinatlar
-    // "geo": {
-    //   "@type": "GeoCoordinates",
-    //   "latitude": "ENLEM_DEĞERİNİ_BURAYA_YAZIN",
-    //   "longitude": "BOYLAM_DEĞERİNİ_BURAYA_YAZIN"
-    // }
-  };
-
+  const localBusinessSchema = branches.map((branch) => ({
+  "@context": "https://schema.org",
+  "@type": "CurtainStore",
+  name: branch.name,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: branch.streetAddress,
+    addressLocality: "Kadıköy",
+    addressRegion: "İstanbul",
+    postalCode: branch.postalCode,
+    addressCountry: "TR",
+  },
+  telephone: "+905333357636",
+  url: baseUrl,
+  image: baseUrl + "/logo-sevval-perde.png",
+  openingHours: "Mo-Sa 09:00-19:00",
+  hasMap: branch.mapUrl,
+  identifier: branch.mapUrl,
+  sameAs: [instagramUrl, branch.mapUrl],
+}));
   return {
     title: "İletişim - Şevval Perde | Kadıköy Mağaza ve Telefon",
     meta: [
       {
         name: "description",
         content:
-          "Şevval Perde ile iletişime geçin. Adres: Fahrettin Kerim Gökay Cd No:223, Kadıköy/İstanbul. Telefon: +90 533 335 76 36. Instagram ve e-posta bilgileri.",
+  "Şevval Perde Kadıköy şubelerimize ulaşın. Göztepe/Merdivenköy ve Sahrayı Cedit şubelerimizin adres, telefon, harita ve iletişim bilgileri.",
       },
     ],
     link: [
@@ -110,53 +131,58 @@ useHead(() => {
 
     <div class="contact-section">
       <div class="contact-info">
-        <h2>Şevval Perde - Kadıköy</h2>
+  <h2>Şubelerimiz</h2>
 
-        <div class="contact-item">
-          <i class="fas fa-map-marker-alt contact-icon" aria-hidden="true"></i>
-          <span
-            >Merdivenköy, Fahrettin Kerim Gökay Cd No:223, 34730
-            Kadıköy/İstanbul</span
-          >
-        </div>
+  <div class="branches-grid">
+    <div v-for="branch in branches" :key="branch.name" class="branch-card">
+      <h3>{{ branch.name }}</h3>
 
-        <div class="contact-item">
-          <i class="fas fa-phone-alt contact-icon" aria-hidden="true"></i>
-          <a href="tel:+905333357636">+90 533 335 76 36</a>
-        </div>
-
-        <div class="contact-item">
-          <i class="fas fa-envelope contact-icon" aria-hidden="true"></i>
-          <a href="mailto:sevvalperde@hotmail.com">sevvalperde@hotmail.com</a>
-        </div>
-
-        <div class="contact-item">
-          <i class="fab fa-instagram contact-icon" aria-hidden="true"></i>
-          <a :href="instagramUrl" target="_blank" rel="noopener noreferrer">{{
-            instagramUsername
-          }}</a>
-        </div>
-
-        <div class="contact-item">
-          <i class="fas fa-clock contact-icon" aria-hidden="true"></i>
-          <span>Hafta içi & Cumartesi 09:00 - 19:00</span>
-        </div>
+      <div class="contact-item">
+        <i class="fas fa-map-marker-alt contact-icon" aria-hidden="true"></i>
+        <span>{{ branch.addressText }}</span>
       </div>
 
-      <div class="map-container">
-        <h2>Konumumuz</h2>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.9430085662066!2d29.063786076227725!3d40.982728771354076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac79122819e4d%3A0xd9ebf39b8e4c54d8!2s%C5%9EEVVAL%20PERDE!5e0!3m2!1str!2str!4v1746020811218!5m2!1str!2str"
-          width="100%"
-          height="450"
-          style="border: 0"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Şevval Perde Konumu"
-        ></iframe>
+      <div class="contact-item">
+        <i class="fas fa-phone-alt contact-icon" aria-hidden="true"></i>
+        <a :href="branch.phoneHref">{{ branch.phone }}</a>
+      </div>
+
+      <div class="contact-item">
+        <i class="fas fa-envelope contact-icon" aria-hidden="true"></i>
+        <a :href="branch.emailHref">{{ branch.email }}</a>
+      </div>
+
+      <div class="contact-item">
+        <i class="fas fa-clock contact-icon" aria-hidden="true"></i>
+        <span>{{ branch.workingHours }}</span>
+      </div>
+
+      <div class="contact-item">
+        <i class="fas fa-location-arrow contact-icon" aria-hidden="true"></i>
+        <a :href="branch.mapUrl" target="_blank" rel="noopener noreferrer">
+          Google Haritalar’da Aç
+        </a>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="maps-grid">
+  <div v-for="branch in branches" :key="`${branch.name}-map`" class="map-container">
+    <h2>{{ branch.name }} Konumu</h2>
+
+    <iframe
+      :src="branch.embedUrl"
+      width="100%"
+      height="450"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      :title="`${branch.name} Konumu`"
+    ></iframe>
+  </div>
+</div>
   </div>
 </template>
 
