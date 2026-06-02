@@ -203,7 +203,7 @@ useHead(() => {
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            :title="`${branch.name} Konumu`"
+            :title="`${branch.name} `"
           ></iframe>
         </div>
       </div>
