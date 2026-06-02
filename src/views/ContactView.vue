@@ -1,11 +1,10 @@
 <script setup>
 import { useHead } from "@vueuse/head";
-import { useRoute } from "vue-router"; // Vue Router'dan useRoute'u import ediyoruz
+import { useRoute } from "vue-router";
 
-const route = useRoute(); // Mevcut route bilgilerini almak için
-const pageTitleForBreadcrumb = "İletişim"; // Breadcrumb'da görünecek sayfa adı
+const route = useRoute();
+const pageTitleForBreadcrumb = "İletişim";
 
-// Instagram bilgileri
 const instagramUrl = "https://www.instagram.com/sevvalperde/";
 const instagramUsername = "@sevvalperde";
 
@@ -37,19 +36,18 @@ const branches = [
     email: "sevvalperde@hotmail.com",
     emailHref: "mailto:sevvalperde@hotmail.com",
     workingHours: "Hafta içi & Cumartesi 09:00 - 19:00",
-    mapUrl: "https://www.google.com/maps/place/%C5%9Eevval+Perde+Sahray%C4%B1+Cedit/@40.9799355,29.0752624,17z/data=!3m1!4b1!4m6!3m5!1s0x14cac7007e977f43:0xee19df922ecaf2d4!8m2!3d40.9799315!4d29.0778373!16s%2Fg%2F11z4z8cjy9?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D",
+    mapUrl:
+      "https://www.google.com/maps/place/%C5%9Eevval+Perde+Sahray%C4%B1+Cedit/@40.9799355,29.0752624,17z/data=!3m1!4b1!4m6!3m5!1s0x14cac7007e977f43:0xee19df922ecaf2d4!8m2!3d40.9799315!4d29.0778373!16s%2Fg%2F11z4z8cjy9?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D",
     embedUrl:
-      "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3012.0657169042524!2d29.0762357!3d40.9800418!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac7007e977f43%3A0xee19df922ecaf2d4!2s%C5%9Eevval%20Perde%20Sahray%C4%B1%20Cedit!5e0!3m2!1sen!2str!4v1780409111039!5m2!1sen!2str"
+      "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3012.0657169042524!2d29.0762357!3d40.9800418!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac7007e977f43%3A0xee19df922ecaf2d4!2s%C5%9Eevval%20Perde%20Sahray%C4%B1%20Cedit!5e0!3m2!1sen!2str!4v1780409111039!5m2!1sen!2str",
   },
 ];
 
-// useHead'i reaktif hale getirmek için bir fonksiyon olarak tanımlıyoruz
 useHead(() => {
-  const baseUrl = "https://www.sevvalperde.com"; // Sitenizin ana URL'si
-  const currentPath = route.path; // Mevcut sayfanın yolu
-  const currentUrl = baseUrl + currentPath; // Mevcut sayfanın tam URL'si
+  const baseUrl = "https://www.sevvalperde.com";
+  const currentPath = route.path;
+  const currentUrl = baseUrl + currentPath;
 
-  // BreadcrumbList için öğeler
   const breadcrumbItems = [
     {
       "@type": "ListItem",
@@ -65,7 +63,6 @@ useHead(() => {
     },
   ];
 
-  // LocalBusiness / CurtainStore şeması
   const localBusinessSchema = branches.map((branch) => ({
     "@context": "https://schema.org",
     "@type": "CurtainStore",
@@ -187,23 +184,23 @@ useHead(() => {
         </div>
       </div>
 
-            <div class="maps-grid">
+      <div class="maps-grid">
         <div
           v-for="branch in branches"
           :key="`${branch.name}-map`"
           class="map-container"
         >
-          <h2>{{ branch.name }}</h2>
+          <h2>{{ branch.name }} Konumu</h2>
 
           <iframe
             :src="branch.embedUrl"
             width="100%"
             height="450"
             style="border: 0"
-            allowfullscreen=""
+            allowfullscreen
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            :title="branch.name"
+            :title="`${branch.name} Konumu`"
           ></iframe>
         </div>
       </div>
