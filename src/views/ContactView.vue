@@ -193,7 +193,7 @@ useHead(() => {
           :key="`${branch.name}-map`"
           class="map-container"
         >
-          <h2>{{ branch.name }} Konumu</h2>
+          <h2>{{ branch.name }} </h2>
 
           <iframe
             :src="branch.embedUrl"
