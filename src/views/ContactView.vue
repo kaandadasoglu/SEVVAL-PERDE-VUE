@@ -37,7 +37,7 @@ const branches = [
     email: "sevvalperde@hotmail.com",
     emailHref: "mailto:sevvalperde@hotmail.com",
     workingHours: "Hafta içi & Cumartesi 09:00 - 19:00",
-    mapUrl: "https://maps.app.goo.gl/4GFwLbUE51U2E9ER9",
+    mapUrl: "https://www.google.com/maps/place/%C5%9Eevval+Perde+Sahray%C4%B1+Cedit/@40.9800418,29.0762357,17.75z/data=!4m14!1m7!3m6!1s0x14cac7007e977f43:0xee19df922ecaf2d4!2s%C5%9Eevval+Perde+Sahray%C4%B1+Cedit!8m2!3d40.9799315!4d29.0778373!16s%2Fg%2F11z4z8cjy9!3m5!1s0x14cac7007e977f43:0xee19df922ecaf2d4!8m2!3d40.9799315!4d29.0778373!16s%2Fg%2F11z4z8cjy9?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D",
     embedUrl:
       "https://www.google.com/maps?q=Sahray%C4%B1%20Cedit%2C%20%C4%B0n%C3%B6n%C3%BC%20Cd.%20NO%3A2%20/%201%2C%2034734%20Kad%C4%B1k%C3%B6y/%C4%B0stanbul&output=embed",
   },
