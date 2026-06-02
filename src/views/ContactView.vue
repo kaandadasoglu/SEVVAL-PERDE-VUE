@@ -244,10 +244,10 @@ h1 {
 
 .contact-info h2 {
   color: #a0522d;
-  margin-bottom: 25px;
+  margin-bottom: 40px;
   padding-bottom: 10px;
   border-bottom: 1px solid #eee;
-  font-size: 1.8em;
+  font-size: 1.6em;
 }
 
 .branches-grid,
